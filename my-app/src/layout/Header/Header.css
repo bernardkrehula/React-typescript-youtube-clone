@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   gap: 2px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .youtube-btn-content h1{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
@@ -26,4 +26,9 @@
 .search-bar{
   display: flex;
   margin: 0 auto;
+  gap: 2px;
+}
+.logo{
+  height: 40px;
+  border-radius: 100px;
 }
