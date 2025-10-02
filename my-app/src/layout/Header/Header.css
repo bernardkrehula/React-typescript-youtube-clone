@@ -1,0 +1,29 @@
+.header{
+  display: flex;
+  background-color: #0f0f0f;
+  padding: 20px 30px;
+  align-items: center;
+}
+.show-menu-icon{
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  color: white;
+}
+.youtube-btn-content{
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 20px;
+}
+.youtube-btn-content h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.youtube-icon{
+  height: 40px;
+  width: 40px;
+}
+.search-bar{
+  display: flex;
+  margin: 0 auto;
+}
