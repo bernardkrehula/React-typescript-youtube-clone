@@ -1,0 +1,11 @@
+1.setupiraj router novi prema dokumentaciji
+2.Za sada home page ali razmisliti o ostalim
+3.Spoji se na api
+4.Dohvati videje za home page
+5.Koristi react querry za dohvacanje za svaki fetch request 
+Api - https://rapidapi.com/Glavier/api/youtube138/playground/apiendpoint_8ace2f84-6cae-47d4-a040-937ba4bb8bac
+
+Instalirati i koristiti axios
+
+2.10 Cilj
+-Odraiti homapage dizajn
