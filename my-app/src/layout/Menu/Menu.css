@@ -1,0 +1,22 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    background-color: #0f0f0f;
+    height: 100vh;
+    width: fit-content;
+    padding: 5px 10px;
+    padding-right: 15px;
+}
+.single-category{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.single-category svg{
+    height: 30px;
+    width: 30px;
+    fill: crimson;
+}
+.single-category h2{
+    font-size: 2rem;
+}

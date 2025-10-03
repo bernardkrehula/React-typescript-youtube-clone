@@ -8,6 +8,10 @@
 .search-bar-input{
     background-color: #0f0f0f;
     width: 500px;
+    padding: 10px;
+    padding-left: 15px;
+    caret-color: white;
+    color: white;
 }
 .search-bar-input:focus{
     outline: none;

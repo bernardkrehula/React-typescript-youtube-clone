@@ -9,3 +9,6 @@ Instalirati i koristiti axios
 
 2.10 Cilj
 -Odraiti homapage dizajn
+
+3.10 Cilj
+-Odratiti react router za menu
