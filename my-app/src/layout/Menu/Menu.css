@@ -15,8 +15,26 @@
 .single-category svg{
     height: 30px;
     width: 30px;
-    fill: crimson;
 }
 .single-category h2{
     font-size: 2rem;
 }
+/* .homepage-svg, .sport-svg{
+    fill: crimson;
+}
+.movie-svg{
+    
+}*/
+.fashion-svg{
+    fill: white;
+}
+.beauty-svg{
+    fill: none;
+    stroke: white;
+} 
+.live-img{
+    height: 30px;
+    width: 30px;
+    filter: invert(100%) sepia(0%) saturate(0%) brightness(100%) contrast(100%);
+}
+
