@@ -6,7 +6,14 @@ html{
   padding: 0;
   box-sizing: border-box;
   overflow: auto;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;                
+}
+body{
+  background-color: #0f0f0f;
 }
 .main-content{
   display: flex;

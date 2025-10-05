@@ -3,6 +3,7 @@
     background-color: #232323;
     border-radius: 10px;
     padding-bottom: 10px;
+    cursor: pointer;
 }
 .video-content{
     display: flex;
