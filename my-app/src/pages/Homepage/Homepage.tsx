@@ -1,9 +1,14 @@
+import Video from "../../components/Video/Video";
+import './Homepage.css'
 
 const Homepage = () => {
-
+ 
     return(
         <div className="homepage">
-            <h1>Homepage</h1>
+            <Video></Video>
+            <Video></Video>
+            <Video></Video>
+            <Video></Video>
         </div>
     )
 

@@ -6,4 +6,8 @@ html{
   padding: 0;
   box-sizing: border-box;
   overflow: auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.main-content{
+  display: flex;
 }
