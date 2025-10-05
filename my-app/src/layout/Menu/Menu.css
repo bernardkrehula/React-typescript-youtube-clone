@@ -1,8 +1,16 @@
+.menu-parent{
+    height: 700px;
+    scrollbar-width: thin; 
+    scrollbar-color: #0f0f0f #0f0f0f;
+}
+.menu-parent:hover{
+    scrollbar-color: #888 #0f0f0f;
+}
 .menu{
     display: flex;
     flex-direction: column;
     background-color: #0f0f0f;
-    max-height: 100vh;
+    height: 800px;
     width: fit-content;
     padding: 5px 10px;
     padding-right: 15px;
