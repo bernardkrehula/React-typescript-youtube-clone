@@ -3,12 +3,17 @@ import Btn from '../../components/Btn/Btn';
 import './Menu.css'
 import { Link } from 'react-router';
 
-const Menu = () => {
+type MenuTypes = {
+    data: object;
+}
+
+const Menu = ({data}: MenuTypes) => {
     const [ loaded, setloading ] = useState(false);
 
-    const loadCategory = () => setloading(true);
-
-    
+    const loadCategory = () => {
+        console.log(data)
+        setloading(true)
+    };
 
     return(
         <>

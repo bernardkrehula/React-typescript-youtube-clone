@@ -2,17 +2,21 @@ import { Outlet } from 'react-router';
 import './App.css'
 import Header from './layout/Header/Header';
 import Menu from './layout/Menu/Menu';
-import AppContext from './api/contextApi';
+import { fetchData } from './api/api';
+import { useQuery } from '@tanstack/react-query';
 
 function App() {
+  const {data} = useQuery({
+        queryKey: ['videos'],
+        queryFn: fetchData,
+    })
 
   return (
     <div className='main'>
       <Header />
       <div className='main-content'>
-        <Menu />
+        <Menu data={data}/>
         <Outlet />
-        <AppContext />
       </div>
     </div>
   )
