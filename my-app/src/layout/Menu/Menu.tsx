@@ -23,7 +23,7 @@ const Menu = () => {
                 </Link>
                 <Link to={'/Trending'}>
                     <div className='single-category'>
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  className='trending-svg'><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
+                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className='trending-svg'><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
                         <h2>Trending</h2>
                     </div>
                 </Link>
@@ -86,7 +86,7 @@ const Menu = () => {
                     <div className='single-category'>
                         <svg xmlns="http://www.w3.org/2000/svg" className='beauty-svg' width="200" height="200" viewBox="0 0 14 14"><g stroke-linecap="round" stroke-linejoin="round"><path d="M1.29 9.71a1 1 0 0 0 0 1.41l2.09 2.09a1 1 0 0 0 1.41 0L8.5 9.5L5 6z"/><path d="M5.54 6.54L11.29.79a1 1 0 0 1 1.09-.21a1 1 0 0 1 .62.92v2.17a.999.999 0 0 1-.29.71L8 9m.04-4.96l2.5 2.5"/></g></svg>
                         <h2>Beauty</h2>
-                </div></Btn>
+                </div></Btn> 
         </div>
             </div>
          

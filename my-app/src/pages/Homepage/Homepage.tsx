@@ -1,8 +1,10 @@
 import Video from "../../components/Video/Video";
 import './Homepage.css'
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
-const Homepage = () => {
- 
+const Homepage = ({}) => {
+
     return(
         <div className="homepage-parent">
             <div className="homepage">
