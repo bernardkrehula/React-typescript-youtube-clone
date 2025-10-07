@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+/* import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "./api";
 
 const QueryApi = () => {
@@ -11,4 +11,4 @@ const QueryApi = () => {
     )
 
 }
-export default QueryApi;
+export default QueryApi; */

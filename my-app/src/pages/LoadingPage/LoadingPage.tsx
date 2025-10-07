@@ -1,6 +1,6 @@
 import Video from "../../components/Video/Video";
-import './Homepage.css'
-const Homepage = ({}) => {
+import './LoadingPage.css'
+const LoadingPage = ({}) => {
 
     return(
         <div className="homepage-parent">
@@ -19,4 +19,4 @@ const Homepage = ({}) => {
     )
 }
 
-export default Homepage;
+export default LoadingPage;

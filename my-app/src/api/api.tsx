@@ -1,13 +1,21 @@
 import axios from 'axios';
 
+const key = 'bf3d316b93msh524143a624c0e96p14df26jsndfaaec8d6cf4';
+
 const options = {
   method: 'GET',
-  url: 'https://youtube138.p.rapidapi.com/v2/trending',
+  url: 'https://youtube138.p.rapidapi.com/video/details/',
+  params: {
+    id: 'kJQP7kiw5Fk',
+    hl: 'en',
+    gl: 'US'
+  },
   headers: {
-    'x-rapidapi-key': '58ebefbf81mshd5f944318b77b95p142c10jsn560e81ba595e',
+    'x-rapidapi-key': 'key',
     'x-rapidapi-host': 'youtube138.p.rapidapi.com'
   }
 };
+//Axinos usage
 
 export const fetchData = async() => {
   try {

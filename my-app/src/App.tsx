@@ -6,16 +6,17 @@ import { fetchData } from './api/api';
 import { useQuery } from '@tanstack/react-query';
 
 function App() {
+  //React querry usage
   const {data} = useQuery({
         queryKey: ['videos'],
-        queryFn: fetchData,
+        queryFn: fetchData
     })
 
   return (
     <div className='main'>
       <Header />
       <div className='main-content'>
-        <Menu data={data}/>
+        <Menu data={data} />
         <Outlet />
       </div>
     </div>

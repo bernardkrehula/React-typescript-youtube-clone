@@ -12,3 +12,8 @@ Instalirati i koristiti axios
 
 3.10 Cilj
 -Odratiti react router za menu
+
+Zahardkodirati data umjesto api requesta za kartice i videje
+Iskopirati data preko api on gotovog yt klona preko network
+pod api request na vracen data preview
+Smisliti kako ce raditi menu ako kliknem na single video

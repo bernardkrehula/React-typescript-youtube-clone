@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
-import Homepage from "./pages/Homepage/Homepage";
-import Trending from "./pages/Trending/Trending";
+import LoadingPage from "./pages/LoadingPage/LoadingPage";
 
 const router = createBrowserRouter([
     {
@@ -10,11 +9,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Homepage />
-            },
-            {
-                path: '/Trending',
-                element: <Trending />
+                element: <LoadingPage />
             }
         ]
     }
