@@ -10,9 +10,9 @@ const LoadingPage = ({}) => {
     return(
         <div className="homepage-parent">
             <div className="homepage">
-               {ytData.map(data => {
+               {ytData.map((data, index) => {
                     return(
-                        <Video data={data}></Video>
+                        <Video key={index} data={data}></Video>
                     )
                })}
             </div>
