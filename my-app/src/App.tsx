@@ -4,6 +4,7 @@ import Header from './layout/Header/Header';
 import Menu from './layout/Menu/Menu';
 import { fetchData } from './api/api';
 import { useQuery } from '@tanstack/react-query';
+import ConnectionProvider from './useContext/ConnectionProvider';
 
 function App() {
   //React querry usage
@@ -15,10 +16,12 @@ function App() {
   return (
     <div className='main'>
       <Header />
-      <div className='main-content'>
-        <Menu data={data} />
-        <Outlet />
-      </div>
+      <ConnectionProvider>
+        <div className='main-content'>
+          <Menu />
+          <Outlet />
+        </div>
+      </ConnectionProvider>
     </div>
   )
 }

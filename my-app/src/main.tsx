@@ -15,5 +15,3 @@ createRoot(document.getElementById('root')!).render(
     </QueryClientProvider>   
   </StrictMode>,
 )
-
-//Trebam zamijeniti app sa routerProvider i naprvaiti myRoute u kojem cu iskoristiti react querry

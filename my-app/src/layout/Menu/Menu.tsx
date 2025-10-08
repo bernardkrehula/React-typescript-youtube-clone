@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Menu.css'
 import { Link } from 'react-router';
+import { connectionContext } from '../../useContext/ConnectionProvider';
 
 type MenuTypes = {
     data?: object;
@@ -8,6 +9,7 @@ type MenuTypes = {
 
 const Menu = ({data}: MenuTypes) => {
     const [ loaded, setloading ] = useState(false);
+    const { isHidden } = connectionContext();
 
     const loadCategory = () => {
         console.log(data)
@@ -18,7 +20,7 @@ const Menu = ({data}: MenuTypes) => {
     };
     //Routing
 
-    return(
+    if(isHidden) return(
         <>
             <div className='loading-line' style={{width: loaded ? '100%' : '0'}}></div>
             <div className='menu-parent'>
