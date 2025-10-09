@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 type VideoType = {
     data: VideoTypes;
+    onClick: () => void;
 }
 type VideoTypes = {
     title: string;
@@ -12,7 +13,7 @@ type VideoTypes = {
     channelTitle: string;
 }
 
-const Video = ({data}: VideoType) => {
+const Video = ({data, onClick}: VideoType) => {
     const [ timeOfPublishing , setTimeOfPublishing ] = useState('');
     const { title, publishedAt, thumbnail, channelTitle } = data;
 
@@ -40,7 +41,7 @@ const Video = ({data}: VideoType) => {
     }
 
     return(
-            <div className='video'>
+        <div className='video' onClick={onClick}>
             <img src={thumbnail}/>
             <div className='video-content'>
                 <h1>{title}</h1>

@@ -1,37 +1,30 @@
-import { useState } from 'react';
 import './Menu.css'
 import { Link } from 'react-router';
 import { connectionContext } from '../../useContext/ConnectionProvider';
+import MenuData from '../../data/MenuData';
+import MenuIcon from '../../components/MenuIcon/MenuIcon';
+ 
 
-type MenuTypes = {
-    data?: object;
-}
-
-const Menu = ({data}: MenuTypes) => {
-    const [ loaded, setloading ] = useState(false);
-    const { isHidden } = connectionContext();
-
-    const loadCategory = () => {
-        console.log(data)
-        setloading(true)
-        setTimeout(() => {
-            setloading(false)
-        },2000) 
-    };
-    //Routing
+const Menu = () => {
+    const { isHidden, loaded, loadingAnimation } = connectionContext();
 
     if(isHidden) return(
         <>
             <div className='loading-line' style={{width: loaded ? '100%' : '0'}}></div>
             <div className='menu-parent'>
                 <div className='menu'>
-                <Link to={'/'} onClick={loadCategory}>
-                    <div className='single-category' onClick={loadCategory}>
+                {MenuData.map((linkData, index) => {
+                     return(
+                        <MenuIcon key={index} linkData={linkData} onClick={loadingAnimation}></MenuIcon>
+                     )
+                })}
+                {/* <Link to={'/'}>
+                    <div className='single-category'>
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#ffffff"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="homepage-svg"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                         <h2>Homepage</h2>
                     </div>
                 </Link>
-                <Link to={'/Trending'} onClick={loadCategory}>
+                <Link to={'/Trending'} >
                     <div className='single-category'>
                         <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className='trending-svg'><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 17l6 -6l4 4l8 -8" /><path d="M14 7l7 0l0 7" /></svg>
                         <h2>Trending</h2>
@@ -96,8 +89,8 @@ const Menu = ({data}: MenuTypes) => {
                     <div className='single-category'>
                         <svg xmlns="http://www.w3.org/2000/svg" className='beauty-svg' width="200" height="200" viewBox="0 0 14 14"><g strokeLinecap="round" strokeLinejoin="round"><path d="M1.29 9.71a1 1 0 0 0 0 1.41l2.09 2.09a1 1 0 0 0 1.41 0L8.5 9.5L5 6z"/><path d="M5.54 6.54L11.29.79a1 1 0 0 1 1.09-.21a1 1 0 0 1 .62.92v2.17a.999.999 0 0 1-.29.71L8 9m.04-4.96l2.5 2.5"/></g></svg>
                         <h2>Beauty</h2>
-                </div></Link> 
-        </div>
+                </div></Link> */} 
+                </div>
             </div>
          
         </>
