@@ -1,10 +1,10 @@
 import Video from "../../components/Video/Video";
 import './LoadingPage.css'
-import mrBeastData from "../../data/youtubeData";
+import youtubeVideosData from "../../data/youtubeVideosData";
 import { connectionContext } from "../../useContext/ConnectionProvider";
 
 const LoadingPage = ({}) => {
-    const ytData = mrBeastData;
+    const ytData = youtubeVideosData;
     const { hideMenu, isHidden } = connectionContext();
     if(isHidden) return(
         <div className="homepage-parent">

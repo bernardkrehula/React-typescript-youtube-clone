@@ -1,6 +1,6 @@
 // youtubeSearch.js
 
-const mrBeastData = {
+const youtubeVideosData = {
     "kind": "youtube#searchListResponse",
     "nextPageToken": "CCAQAA",
     "regionCode": "US",
@@ -205,5 +205,5 @@ const mrBeastData = {
 };
 
 
-export default mrBeastData;
+export default youtubeVideosData;
 

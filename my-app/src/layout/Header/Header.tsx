@@ -7,7 +7,7 @@ const Header = () => {
     return(
         <div className='header'>
             <Btn>
-                <svg  xmlns="http://www.w3.org/2000/svg"  strokeWidth="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeLinecap="round"  strokeLinejoin="round"  className="show-menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h16" /><path d="M4 12h16" /><path d="M4 4h16" /></svg>
+                <svg  xmlns="http://www.w3.org/2000/svg"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="show-menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h16" /><path d="M4 12h16" /><path d="M4 4h16" /></svg>
             </Btn>
             <Btn>
                 <div className='youtube-btn-content'>
@@ -18,7 +18,7 @@ const Header = () => {
             <div className='search-bar'>
                 <SingleInput variation='search-bar-input' placeholder='Search'></SingleInput>
                 <Btn variation='search-btn'>
-                    <svg  xmlns="http://www.w3.org/2000/svg"  strokeWidth="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#ffffff"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                    <svg  xmlns="http://www.w3.org/2000/svg" height="24"  viewBox="0 0 24 24"  fill="none"  stroke="#ffffff"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                 </Btn>
             </div>
             <Btn>
