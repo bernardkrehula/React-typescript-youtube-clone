@@ -29,7 +29,6 @@ const Video = ({videoData, onClick}: VideoDataType) => {
     const { kind } = id;
     const { channelTitle, title, publishedAt, thumbnails, description } = snippet;
     const { high } = thumbnails;
-    console.log(thumbnails)
 
     useEffect(() => {
         getTimeDifference();
