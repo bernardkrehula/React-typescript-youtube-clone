@@ -2,18 +2,28 @@ import './Video.css'
 import { differenceInDays } from 'date-fns';
 import { useEffect, useState } from 'react';
 
-type VideoType = {
-    data: VideoTypes;
+type VideoDataType = {
+    videoData: VideoTypes;
     onClick: () => void;
 }
 type VideoTypes = {
-    title: string;
+    id: IdType;
+    snippet: SnippetType;
+}
+type IdType = {
+    kind: string;
+}
+type SnippetType = {
     publishedAt: string;
-    thumbnail: string;
+    title: string;
     channelTitle: string;
+    thumbnails: { high: { 
+        url: string 
+    }};
+    description: string;
 }
 
-const Video = ({videoData, onClick}: VideoType) => {
+const Video = ({videoData, onClick}: VideoDataType) => {
     const [ timeOfPublishing , setTimeOfPublishing ] = useState('');
     const { snippet, id } = videoData;
     const { kind } = id;
