@@ -1,11 +1,3 @@
-import type { ReactNode } from "react";
-
-type MenuItem = {
-  title: string;
-  path: string;
-  icon: string;
-}
-
 const MenuData = [
   {
     title: "Homepage",
