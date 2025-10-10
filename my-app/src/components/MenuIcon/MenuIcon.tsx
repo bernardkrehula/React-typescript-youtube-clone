@@ -3,6 +3,10 @@ import { Link } from "react-router";
 import './MenuIcon.css'
 
 type MenuIcon = {
+    linkData: LinkDataType;
+    onClick: () => void;
+}
+type LinkDataType = {
     title: string;
     path: string;
     icon: string;

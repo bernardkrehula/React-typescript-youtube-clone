@@ -1,18 +1,18 @@
 import Video from "../../components/Video/Video";
 import './LoadingPage.css'
-import youtubeData from "../../data/youtubeData";
+import mrBeastData from "../../data/youtubeData";
 import { connectionContext } from "../../useContext/ConnectionProvider";
 
 const LoadingPage = ({}) => {
-    const ytData = youtubeData;
+    const ytData = mrBeastData;
     const { hideMenu, isHidden } = connectionContext();
-
     if(isHidden) return(
         <div className="homepage-parent">
             <div className="homepage">
-               {ytData.map((data, index) => {
+               {ytData.items.map((data, index) => {
+                    
                     return(
-                        <Video key={index} data={data} onClick={hideMenu}></Video>
+                        <Video key={index} videoData={data} onClick={hideMenu}></Video>
                     )
                })}
             </div>

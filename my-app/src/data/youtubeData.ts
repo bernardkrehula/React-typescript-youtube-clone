@@ -1,62 +1,209 @@
 // youtubeSearch.js
 
-const youtubeData = [
-  {
-    title: "🔴 Peppa Pig SEASON 10 LIVE! 🐷 ALL NEW Peppa Pig Episodes ✨ Super Funny 🤣 Kids Cartoons 🔴",
-    publishedAt: "2025-10-01T14:50:06Z",
-    thumbnail: "https://i.ytimg.com/vi/Y5wIgYIDIo0/hqdefault_live.jpg",
-    channelTitle: "Peppa Pig - Official Channel"
-  },
-  {
-    title: "NEW: Multiple IEDs found in suspected Michigan church shooter’s truck",
-    publishedAt: "2025-09-30T12:01:19Z",
-    thumbnail: "https://i.ytimg.com/vi/bVFk10lmt7k/hqdefault.jpg",
-    channelTitle: "Fox News"
-  },
-  {
-    title: "3I/ATLAS comet estimated size growing, new data shows | Elizabeth Vargas Reports",
-    publishedAt: "2025-10-01T00:21:40Z",
-    thumbnail: "https://i.ytimg.com/vi/kLmaWOJPaUw/hqdefault.jpg",
-    channelTitle: "NewsNation"
-  },
-  {
-    title: "Daya - New (Lyrics)",
-    publishedAt: "2018-02-14T14:00:53Z",
-    thumbnail: "https://i.ytimg.com/vi/RK7-oa8_DkQ/hqdefault.jpg",
-    channelTitle: "7clouds"
-  },
-  {
-    title: "UK Unveils New Immigration Rules, Moves To Tighten Permanent Residency Criteria | Spotlight | N18G",
-    publishedAt: "2025-09-30T13:35:03Z",
-    thumbnail: "https://i.ytimg.com/vi/kAUlZPWGVc0/hqdefault.jpg",
-    channelTitle: "Firstpost"
-  },
-  {
-    title: "New Webb Telescope Data on 3I/ATLAS Just Dropped — The Truth Is Worse Than Expected",
-    publishedAt: "2025-09-28T15:43:20Z",
-    thumbnail: "https://i.ytimg.com/vi/Uvuhv7IZZwI/hqdefault.jpg",
-    channelTitle: "Voyager"
-  },
-  {
-    title: "The New York Yankees Just Blew Their Biggest Game of The Year in a Sickeningly Familiar Way",
-    publishedAt: "2025-10-01T02:21:40Z",
-    thumbnail: "https://i.ytimg.com/vi/fYhn6AjXjGs/hqdefault.jpg",
-    channelTitle: "Made The Cut"
-  },
-  {
-    title: "Sapna Choudhary \"Ripta Pair\" Ruchika Jangid | New Haryanvi Song 2025 | T-Series Haryanvi",
-    publishedAt: "2025-09-30T05:27:35Z",
-    thumbnail: "https://i.ytimg.com/vi/xcuRHS8vQdg/hqdefault.jpg",
-    channelTitle: "T-SERIES HARYANVI"
-  },
-  {
-    title: "Taylor Swift on Reclaiming Her Masters, Wrapping The Eras Tour, and The Life of a Showgirl | NHTV",
-    publishedAt: "2025-08-13T23:00:06Z",
-    thumbnail: "https://i.ytimg.com/vi/M2lX9XESvDE/hqdefault.jpg",
-    channelTitle: "New Heights"
-  }
-];
+const mrBeastData = {
+    "kind": "youtube#searchListResponse",
+    "nextPageToken": "CCAQAA",
+    "regionCode": "US",
+    "pageInfo": {
+        "totalResults": 1000000,
+        "resultsPerPage": 32
+    },
+    "items": [
+        {
+            "kind": "youtube#searchResult",
+            "id": {
+                "kind": "youtube#channel",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA"
+            },
+            "snippet": {
+                "publishedAt": "2012-02-20T00:43:50Z",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                "title": "MrBeast",
+                "description": "SUBSCRIBE FOR A COOKIE! New MrBeast or MrBeast Gaming video every single Saturday at noon eastern time!",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://yt3.ggpht.com/nxYrc_1_2f77DoBadyxMTmv7ZpRZapHR5jbuYe7PlPd5cIRJxtNNEYyOC0ZsxaDyJJzXrnJiuDE=s88-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "medium": {
+                        "url": "https://yt3.ggpht.com/nxYrc_1_2f77DoBadyxMTmv7ZpRZapHR5jbuYe7PlPd5cIRJxtNNEYyOC0ZsxaDyJJzXrnJiuDE=s240-c-k-c0xffffffff-no-rj-mo"
+                    },
+                    "high": {
+                        "url": "https://yt3.ggpht.com/nxYrc_1_2f77DoBadyxMTmv7ZpRZapHR5jbuYe7PlPd5cIRJxtNNEYyOC0ZsxaDyJJzXrnJiuDE=s800-c-k-c0xffffffff-no-rj-mo"
+                    }
+                },
+                "channelTitle": "MrBeast",
+                "liveBroadcastContent": "none",
+                "publishTime": "2012-02-20T00:43:50Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "oiZvK6MY7tI"
+            },
+            "snippet": {
+                "publishedAt": "2025-10-07T16:00:00Z",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                "title": "Call Your Ex, Win $10,000",
+                "description": "",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/oiZvK6MY7tI/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/oiZvK6MY7tI/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/oiZvK6MY7tI/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "MrBeast",
+                "liveBroadcastContent": "none",
+                "publishTime": "2025-10-07T16:00:00Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "zo7i8VTpfNM"
+            },
+            "snippet": {
+                "publishedAt": "2025-09-27T16:00:04Z",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                "title": "Would You Risk Dying For $500,000?",
+                "description": "i cant believe he did that at the end Jack Link's x MrBeast beef sticks have arrived! Click and go get yours now ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/zo7i8VTpfNM/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/zo7i8VTpfNM/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/zo7i8VTpfNM/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "MrBeast",
+                "liveBroadcastContent": "none",
+                "publishTime": "2025-09-27T16:00:04Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "uA9Zcg3vHvo"
+            },
+            "snippet": {
+                "publishedAt": "2025-09-01T20:45:41Z",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                "title": "I Raced IShowSpeed",
+                "description": "New Merch - https://mrbeast.store Check out Viewstats! - https://www.viewstats.com/ SUBSCRIBE OR I TAKE YOUR DOG ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/uA9Zcg3vHvo/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/uA9Zcg3vHvo/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/uA9Zcg3vHvo/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "MrBeast",
+                "liveBroadcastContent": "none",
+                "publishTime": "2025-09-01T20:45:41Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "F0OkwXKcPSE"
+            },
+            "snippet": {
+                "publishedAt": "2025-10-04T16:00:07Z",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                "title": "Hi Me In 10 Years",
+                "description": "Holy crap I will probably be so different when this goes public. I will be done with highschool I will have gone through college ...",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/F0OkwXKcPSE/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/F0OkwXKcPSE/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/F0OkwXKcPSE/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "MrBeast",
+                "liveBroadcastContent": "none",
+                "publishTime": "2025-10-04T16:00:07Z"
+            }
+        },
+        {
+            "kind": "youtube#searchResult",
+            "id": {
+                "kind": "youtube#video",
+                "videoId": "zxuICI0kL3s"
+            },
+            "snippet": {
+                "publishedAt": "2025-07-31T16:00:01Z",
+                "channelId": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+                "title": "Don't Turn Around, Win $10k",
+                "description": "",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/zxuICI0kL3s/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/zxuICI0kL3s/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/zxuICI0kL3s/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    }
+                },
+                "channelTitle": "MrBeast",
+                "liveBroadcastContent": "none",
+                "publishTime": "2025-07-31T16:00:01Z"
+            }
+        }
+    ]
+};
 
 
-export default youtubeData;
+export default mrBeastData;
 

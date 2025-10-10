@@ -1,20 +1,28 @@
 import './Menu.css'
-import { Link } from 'react-router';
 import { connectionContext } from '../../useContext/ConnectionProvider';
 import MenuData from '../../data/MenuData';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
- 
+import { useQuery } from '@tanstack/react-query';
+import { fetchData } from '../../api/api';
 
 const Menu = () => {
     const { isHidden, loaded, loadingAnimation } = connectionContext();
 
+    //React querry usage
+    const {data} = useQuery({
+        queryKey: ['videos'],
+        queryFn: fetchData,
+    })
+
+    //Render links
     if(isHidden) return(
         <>
             <div className='loading-line' style={{width: loaded ? '100%' : '0'}}></div>
             <div className='menu-parent'>
                 <div className='menu'>
                 {MenuData.map((linkData, index) => {
-                     return(
+
+                    return(
                         <MenuIcon key={index} linkData={linkData} onClick={loadingAnimation}></MenuIcon>
                      )
                 })}
