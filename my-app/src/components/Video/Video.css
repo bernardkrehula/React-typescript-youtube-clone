@@ -12,7 +12,7 @@
     color: white;
 }
 .video-content h1{
-    font-size: 1.7rem;
+    font-size: 1.9rem;
 }
 .video-content h2{
     font-size: 1.7rem;
@@ -28,4 +28,26 @@
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
+}
+.channel-icon{
+    width: 380px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.channel-icon-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    color: white;
+}
+.channel-icon-content h3{
+    font-size: 1.6rem;
+}
+.channel-icon img{
+    height: 200px;
+    object-fit: cover;
+    border-radius: 200px;
 }
