@@ -2,6 +2,7 @@ import './SingleVideo.css'
 import singleVideoData from '../../data/singleVideoData'
 import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
 import recomendedVideos from '../../data/recomendedVideos';
+import youtubeVideoComments from '../../data/youtubeVideoComments';
 
 const SingleVideo = () => {
     //Single video data
@@ -37,6 +38,9 @@ const SingleVideo = () => {
                             <h2>Download</h2>
                         </div>
                     </div>
+                </div>
+                <div className='comments'>
+
                 </div>
             </div>
             <div className='recomended-videos'>
