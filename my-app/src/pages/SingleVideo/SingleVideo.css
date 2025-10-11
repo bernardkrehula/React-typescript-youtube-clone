@@ -4,9 +4,59 @@
 .single-video-icon{
     width: 930px;
     color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .thumbnail{
     width: 100%;
     object-fit: cover;
     height: 500px;
+    border-radius: 10px;
+}
+.single-video-content{
+    padding-top: 10px;
+}
+.video-title{
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    padding-right: 10px;
+}
+.video-title h3{
+    margin-left: auto;
+}
+.video-likes-views{
+    display: flex;
+    align-items: center;
+}
+.views{
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+.likes{
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+    font-size: 1.4rem;
+    margin-left: auto;
+    gap: 3px;
+}
+.dislike{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.share{
+    display: flex;
+    font-size: 1.3rem;
+    margin-top: 18px;
+    margin-left: 10px;
+    gap: 3px;
+}
+.download{
+    display: flex;
+    font-size: 1.3rem;
+    margin-top: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    gap: 3px;
 }
