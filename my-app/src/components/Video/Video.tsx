@@ -33,7 +33,7 @@ const Video = ({videoData, onClick}: VideoDataType) => {
     useEffect(() => {
         getTimeDifference();
     }, [videoData])
-  
+
     const getTimeDifference = () => {
         const publisedTime = new Date(publishedAt);
         const currentTime = new Date();

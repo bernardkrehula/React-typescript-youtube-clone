@@ -1,0 +1,30 @@
+.recomended-video{
+    display: flex;
+    height: 100px;
+    width: 400px;
+    gap: 10px;
+    cursor: pointer;
+}
+.recomended-video img{
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100px;
+    width: 180px;
+    flex-shrink: 0;
+}
+.recomended-content{
+    padding-top: 10px;
+}
+.recomended-content h1 {
+    color: white;
+    font-size: 1.7rem;
+}
+.recomended-content h2{
+    margin-top: 10px;
+    color: rgb(164, 164, 164);
+    font-size: 1.5rem;
+}
+.recomended-content h3{
+    margin-top: 5px;
+    color: rgb(164, 164, 164);
+}
