@@ -1,0 +1,12 @@
+.single-video{
+    padding: 20px 40px;
+}
+.single-video-icon{
+    width: 930px;
+    color: white;
+}
+.thumbnail{
+    width: 100%;
+    object-fit: cover;
+    height: 500px;
+}

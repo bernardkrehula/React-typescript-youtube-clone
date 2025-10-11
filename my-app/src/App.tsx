@@ -3,6 +3,7 @@ import './App.css'
 import Header from './layout/Header/Header';
 import Menu from './layout/Menu/Menu';
 import ConnectionProvider from './useContext/ConnectionProvider';
+import SingleVideo from './pages/SingleVideo/SingleVideo';
 
 //Instalirati react dev tools
 
@@ -13,8 +14,9 @@ function App() {
       <Header />
       <ConnectionProvider>
         <div className='main-content'>
-          <Menu />
-          <Outlet />
+          {/* <Menu />
+          <Outlet /> */}
+          <SingleVideo />
         </div>
       </ConnectionProvider>
     </div>
