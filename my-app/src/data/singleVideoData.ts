@@ -1,5 +1,5 @@
 
-const youtubeSingleVideoData = {
+const singleVideoData = {
     "kind": "youtube#videoListResponse",
     "items": [
         {
@@ -70,4 +70,4 @@ const youtubeSingleVideoData = {
     }
 }
 
-export default youtubeSingleVideoData;
+export default singleVideoData;

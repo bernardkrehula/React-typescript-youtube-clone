@@ -1,15 +1,15 @@
 import './SingleVideo.css'
-import youtubeSingleVideoData from '../../data/youtubeSingleVideoData'
+import singleVideoData from '../../data/singleVideoData'
+import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
 
 const SingleVideo = () => {
-    const { items } = youtubeSingleVideoData;
+    //Single video data
+    const { items } = singleVideoData;
     const [ firstItem ] = items;
     const { snippet, statistics } = firstItem;
     const { title, thumbnails, channelTitle } = snippet;
     const { viewCount, likeCount, commentCount } = statistics; 
     const { maxres } = thumbnails;
- 
-    console.log(thumbnails)
 
     return(
         <div className='single-video'>
@@ -38,6 +38,7 @@ const SingleVideo = () => {
                     </div>
                 </div>
             </div>
+            <RecomendedVideo />
         </div>
     )
 }
