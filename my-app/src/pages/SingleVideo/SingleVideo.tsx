@@ -4,6 +4,7 @@ import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
 import recomendedVideos from '../../data/recomendedVideos';
 import youtubeVideoComments from '../../data/youtubeVideoComments';
 import Comment from './Comment/Comment';
+import { connectionContext } from '../../useContext/ConnectionProvider';
 
 const SingleVideo = () => {
     //Single video data
@@ -14,7 +15,10 @@ const SingleVideo = () => {
     const { viewCount, likeCount, commentCount } = statistics; 
     const { maxres } = thumbnails;
 
-    return(
+    //useContext
+    const { isHidden} = connectionContext();
+    
+    if(!isHidden) return(
         <div className='single-video'>
             <div className='single-video-icon'>
                 <img src={maxres.url} className='thumbnail'/>

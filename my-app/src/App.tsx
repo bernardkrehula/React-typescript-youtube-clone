@@ -14,8 +14,8 @@ function App() {
       <Header />
       <ConnectionProvider>
         <div className='main-content'>
-          {/* <Menu />
-          <Outlet /> */}
+          <Menu />
+          <Outlet />
           <SingleVideo />
         </div>
       </ConnectionProvider>

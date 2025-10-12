@@ -1,6 +1,21 @@
 import './Comment.css'
 
-const Comment = ({commentData}) => {
+type CommentTypes = {
+    commentData: {
+        snippet: {
+        topLevelComment: {
+            snippet: {
+                authorDisplayName: string;
+                authorProfileImageUrl: string;
+                textDisplay: string;
+                publishedAt: string;
+            }
+          }
+        }
+    } 
+}
+
+const Comment = ({commentData}: CommentTypes) => {
     const { snippet: { topLevelComment: { snippet } } } =  commentData;
 
     const { authorDisplayName, authorProfileImageUrl, textDisplay, publishedAt} = snippet;

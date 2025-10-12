@@ -18,6 +18,7 @@ const ConnectionProvider = ({children}: {children: ReactNode}) => {
         setloading(true);
         setTimeout(() => {
             setloading(false);
+            setIsHidden(false);
         },2000)
     }
 
