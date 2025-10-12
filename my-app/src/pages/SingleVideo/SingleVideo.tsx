@@ -40,6 +40,7 @@ const SingleVideo = () => {
                         </div>
                     </div>
                 </div>
+                <h4 className='comments-count'>{Number(commentCount).toLocaleString()} comments</h4>
                 <div className='comments'>
                     {youtubeVideoComments.items.map((data, index) => {
 

@@ -78,3 +78,8 @@
     gap: 15px;
     margin-top: 20px;
 }
+.comments-count{
+    margin-top: 40px;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
