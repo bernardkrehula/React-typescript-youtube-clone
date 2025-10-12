@@ -10,7 +10,7 @@ const Comment = ({commentData}) => {
         <div className="comment">
             <img src={authorProfileImageUrl}/>
             <div className='comment-content'>
-                <div className=''>
+                <div className='comment-author'>
                     <h2>{authorDisplayName}</h2>
                     <h2>{publishedAt}</h2>
                 </div>

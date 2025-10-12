@@ -1,0 +1,22 @@
+.comment{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+}
+.comment img{
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+}
+.comment-author{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.comment-content {
+    width: 850px;
+}
+.comment-content p{
+    font-size: 1.2rem;
+}
