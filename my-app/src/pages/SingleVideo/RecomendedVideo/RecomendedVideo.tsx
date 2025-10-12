@@ -5,7 +5,7 @@ import { differenceInDays } from 'date-fns';
 
 type VideoDataType = {
     videoData: VideoTypes;
-    onClick: () => void;
+    onClick?: () => void;
 }
 type VideoTypes = {
     id: IdType;

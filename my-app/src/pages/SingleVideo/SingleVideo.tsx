@@ -3,6 +3,7 @@ import singleVideoData from '../../data/singleVideoData'
 import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
 import recomendedVideos from '../../data/recomendedVideos';
 import youtubeVideoComments from '../../data/youtubeVideoComments';
+import Comment from './Comment/Comment';
 
 const SingleVideo = () => {
     //Single video data
@@ -40,7 +41,12 @@ const SingleVideo = () => {
                     </div>
                 </div>
                 <div className='comments'>
+                    {youtubeVideoComments.items.map((data, index) => {
 
+                        return(
+                            <Comment key={index} commentData={data}/>
+                        )
+                    })}
                 </div>
             </div>
             <div className='recomended-videos'>
