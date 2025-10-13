@@ -1,5 +1,5 @@
 
-const youtubeVideoComments = {
+const singleVideoComments = {
     "kind": "youtube#commentThreadListResponse",
     "nextPageToken": "Z2V0X25ld2VzdF9maXJzdC0tQ2dnSWdBUVZGN2ZST0JJRkNJY2dHQUFTQlFpb0lCZ0FFZ1VJblNBWUFSSUZDSWdnR0FBU0JRaUpJQmdBSWc0S0RBaWFpcVhIQmhDQS00cm1BZw==",
     "pageInfo": {
@@ -265,4 +265,4 @@ const youtubeVideoComments = {
         }
     ]
 }
-export default youtubeVideoComments;
+export default singleVideoComments;

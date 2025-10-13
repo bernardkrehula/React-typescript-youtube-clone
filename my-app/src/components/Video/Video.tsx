@@ -52,7 +52,9 @@ const Video = ({videoData, onClick}: VideoDataType) => {
             setTimeOfPublishing(`${result} year ago`);
         }
     }
-
+    //Razdovjiti channel card i video card
+    //Za search pogledaj debounce
+    
     if(kind === "youtube#channel") return(
         <div className='channel-icon'>
             <img src={high.url}/>

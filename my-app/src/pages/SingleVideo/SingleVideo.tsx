@@ -2,7 +2,7 @@ import './SingleVideo.css'
 import singleVideoData from '../../data/singleVideoData'
 import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
 import recomendedVideos from '../../data/recomendedVideos';
-import youtubeVideoComments from '../../data/youtubeVideoComments';
+import singleVideoComments from '../../data/singleVideoComments';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
 
@@ -16,7 +16,7 @@ const SingleVideo = () => {
     const { maxres } = thumbnails;
 
     //useContext
-    const { isHidden} = connectionContext();
+    const { isHidden } = connectionContext();
     
     if(!isHidden) return(
         <div className='single-video'>
@@ -46,7 +46,7 @@ const SingleVideo = () => {
                 </div>
                 <h4 className='comments-count'>{Number(commentCount).toLocaleString()} comments</h4>
                 <div className='comments'>
-                    {youtubeVideoComments.items.map((data, index) => {
+                    {singleVideoComments.items.map((data, index) => {
 
                         return(
                             <Comment key={index} commentData={data}/>
