@@ -6,7 +6,7 @@ const Menu = () => {
     const { isHidden, loaded, loadingAnimation } = connectionContext();
 
     //Render links
-    if(isHidden) return(
+    return(
         <>
             <div className='loading-line' style={{width: loaded ? '100%' : '0'}}></div>
             <div className='menu-parent'>
@@ -14,7 +14,7 @@ const Menu = () => {
                 {MenuData.map((linkData, index) => {
 
                     return(
-                        <MenuIcon key={index} linkData={linkData} onClick={loadingAnimation}></MenuIcon>
+                        <MenuIcon key={index} linkData={linkData}></MenuIcon>
                      )
                 })}
                 </div>
