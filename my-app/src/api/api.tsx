@@ -1,4 +1,4 @@
-/* import axios from 'axios';
+import axios from 'axios';
 
 const apiKey = 'bf3d316b93msh524143a624c0e96p14df26jsndfaaec8d6cf4';
 
@@ -26,4 +26,4 @@ export const fetchData = async() => {
       console.error(error);
   }
 }
-   */
+   
