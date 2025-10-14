@@ -2,12 +2,13 @@ import './SingleInput.css'
 
 type InputTypes = {
     placeholder: string;
-    variation: string
+    variation: string;
+    onChange: () => void;
 }
 
-const SingleInput = ({variation, placeholder}: InputTypes) =>   {
+const SingleInput = ({variation, placeholder, onChange}: InputTypes) =>   {
     return(
-        <input className={`basicintput ${variation}`} placeholder={placeholder}></input>
+        <input className={`basicintput ${variation}`} placeholder={placeholder} onChange={onChange}></input>
     )
 }
 
