@@ -3,7 +3,7 @@ import { connectionContext } from '../../useContext/ConnectionProvider';
 import MenuData from '../../data/MenuData';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 const Menu = () => {
-    const { isHidden, loaded, loadingAnimation } = connectionContext();
+    const { loaded, loadingAnimation } = connectionContext();
 
     //Render links
     return(
@@ -14,7 +14,7 @@ const Menu = () => {
                 {MenuData.map((linkData, index) => {
 
                     return(
-                        <MenuIcon key={index} linkData={linkData}></MenuIcon>
+                        <MenuIcon key={index} linkData={linkData} onClick={loadingAnimation}></MenuIcon>
                      )
                 })}
                 </div>

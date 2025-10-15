@@ -3,20 +3,27 @@ import Btn from '../../components/Btn/Btn'
 import SingleInput from '../../components/SingleInput/SingleInput'
 import { Link } from 'react-router'
 import { debounce } from 'throttle-debounce';
-import { searchApi } from '../../api/searchApi';
+import { getDataApi } from '../../api/getDataApi';
+import { connectionContext } from '../../useContext/ConnectionProvider';
+import { useState } from 'react';
 
 const Header = () => {
-
+    const { loadingAnimation } = connectionContext();
+    const [ searchValue, setValue ] = useState<null | string>(null);
 
     const searchContent = debounce(1000,
         (e: React.ChangeEvent<HTMLInputElement>) => {
             //searchApi(e.target.value);
+            loadingAnimation();
         }
     )
     const searchOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
+            const {data} = getDataApi('Trending') 
+            console.log(data);
+               
             e.currentTarget.value = '';
-            console.log('radi')
+            loadingAnimation();
         }
     }
 

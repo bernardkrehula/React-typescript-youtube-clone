@@ -4,7 +4,7 @@ import './MenuIcon.css'
 
 type MenuIcon = {
     linkData: LinkDataType;
-    onClick: () => void;
+    onClick?: () => void;
 }
 type LinkDataType = {
     title: string;

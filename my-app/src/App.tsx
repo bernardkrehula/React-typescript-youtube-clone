@@ -11,8 +11,8 @@ function App() {
 
   return (
     <div className='main'>
-      <Header />
       <ConnectionProvider>
+      <Header />
         <div className='main-content'>
           <Menu />
           <Outlet />
