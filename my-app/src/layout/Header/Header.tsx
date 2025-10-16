@@ -8,20 +8,24 @@ import { connectionContext } from '../../useContext/ConnectionProvider';
 import { useState } from 'react';
 
 const Header = () => {
-    const { loadingAnimation } = connectionContext();
-    const [ searchValue, setValue ] = useState<null | string>(null);
+    const { loadingAnimation, getData } = connectionContext();
+    const [ searchValue, setValue ] = useState<string>('');
+    const {data} = getDataApi(searchValue);
 
     const searchContent = debounce(1000,
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            //searchApi(e.target.value);
+            //Get data with debounce
+
+            setValue(e.target.value);
             loadingAnimation();
         }
     )
-    const searchOnEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const searchOnEnter = async(e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
-            const {data} = getDataApi('Trending') 
-            console.log(data);
-               
+            setValue(e.currentTarget.value);
+            //Get data
+
+            //getDataApi(e.currentTarget.value);
             e.currentTarget.value = '';
             loadingAnimation();
         }

@@ -5,6 +5,8 @@ type ConnectionProviderType = {
     hideMenu: () => void;
     loaded: boolean;
     loadingAnimation: () => void;
+    getData: (value: Object) => void;
+    fetchedData: Object;
 }
 
 const UIProvider = createContext<ConnectionProviderType | undefined>(undefined);
@@ -12,6 +14,7 @@ const UIProvider = createContext<ConnectionProviderType | undefined>(undefined);
 const ConnectionProvider = ({children}: {children: ReactNode}) => {
     const [ isHidden, setIsHidden ] = useState(true);
     const [ loaded, setloading ] = useState(false);
+    const [ fetchedData, setFetchedData ] = useState<void | undefined>({});
 
     const hideMenu = () => setIsHidden(false);
     const loadingAnimation = () => {
@@ -20,9 +23,12 @@ const ConnectionProvider = ({children}: {children: ReactNode}) => {
             setloading(false);
         },2000)
     }
+    const getData = (value: void | undefined) => {
+        setFetchedData(value);
+    }
 
     return(
-        <UIProvider.Provider value={{isHidden, hideMenu, loaded, loadingAnimation}}>
+        <UIProvider.Provider value={{isHidden, hideMenu, loaded, loadingAnimation, getData, fetchedData}}>
             {children}
         </UIProvider.Provider>
     )
