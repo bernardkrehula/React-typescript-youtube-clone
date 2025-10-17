@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const Header = () => {
     const { loadingAnimation, getData } = connectionContext();
-    const [ searchValue, setValue ] = useState<string>('');
+    
     const {data} = getDataApi(searchValue);
 
     const searchContent = debounce(1000,
