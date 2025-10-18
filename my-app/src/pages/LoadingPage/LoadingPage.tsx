@@ -2,14 +2,43 @@ import Video from "../../components/Video/Video";
 import './LoadingPage.css'
 import youtubeVideosData from "../../data/youtubeVideosData";
 import { connectionContext } from "../../useContext/ConnectionProvider";
+import { useEffect } from "react";
+import { useOutletContext } from 'react-router';
 
-type LoadingPageType = {
-    searchValue: string
+type LoadingPageDataType = {
+    fetchedData?: {
+        config: {},
+        data: {
+            contents: [{
+                type: string,
+                video: {
+                    author: {
+
+                    },
+                    descriptionSnippet: string,
+                    publishedTimeText: string,
+                    stats: Number,
+                    thumbnails: {
+                        url: string
+                    },
+                    title: string
+                }
+            }]
+        },
+        headers: {},
+        request: {}
+    }
 }
 
-const LoadingPage = ({searchValue}: LoadingPageType) => {
+const LoadingPage = () => {
     const ytData = youtubeVideosData;
     const { hideMenu, isHidden } = connectionContext();
+    const { data } = useOutletContext<{ data: LoadingPageDataType }>();
+
+    useEffect(() => {
+        console.log(data)
+    },[data])
+    
     if(isHidden) return(
         <div className="homepage-parent">
             <div className="homepage">

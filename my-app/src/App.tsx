@@ -14,10 +14,7 @@ function App() {
   //Napraviti poseban input za menu filter input
   //Dodaj type alias glavne foldere
   const [ searchValue, setValue ] = useState<string>('');
-  const [ fetchedData,  setFetchedData ] = useState({});
   const { data, isLoading, isPending } = useDataApi(searchValue);
-
-  if(!isPending) console.log(data, isLoading)
 
   return (
     <div className='main'>
@@ -25,7 +22,7 @@ function App() {
       <Header setValue={setValue} />
         <div className='main-content'>
           <Menu />
-          <Outlet searchValue={searchValue}/>
+          <Outlet context={{data}}/>
           <SingleVideo />
         </div>
       </ConnectionProvider>

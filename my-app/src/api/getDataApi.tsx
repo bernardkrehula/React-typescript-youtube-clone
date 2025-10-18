@@ -13,7 +13,7 @@ const fetchDataApi = async(value: string) => {
         gl: 'US'
     },
     headers: {
-            'x-rapidapi-key': 'key',
+            'x-rapidapi-key': key,
             'x-rapidapi-host': 'youtube138.p.rapidapi.com'
     }
     };
@@ -33,3 +33,4 @@ export const useDataApi = (value: string) => {
         enabled: !!value,
     })
 }
+

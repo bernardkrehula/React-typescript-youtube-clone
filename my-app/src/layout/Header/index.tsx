@@ -9,7 +9,7 @@ type HeaderTypes = {
     setValue: (value: string) => void;
 }
 
-const Header = ({setValue, getData}: HeaderTypes) => {
+const Header = ({setValue}: HeaderTypes) => {
     const { loadingAnimation } = connectionContext();
 
     const searchContent = debounce(1000,
