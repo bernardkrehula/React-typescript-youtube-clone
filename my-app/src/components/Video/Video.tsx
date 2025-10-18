@@ -3,28 +3,27 @@ import { differenceInDays } from 'date-fns';
 import { useEffect, useState } from 'react';
 
 type VideoDataType = {
-    videoData: VideoTypes;
+    videoData?: {
+        video: {
+        title: string;
+        author: {
+            title: string;
+        }
+        thumbnails: [{ url: string }];
+        publishedTimeText: string;
+    };
+    }
     onClick: () => void;
-}
-type VideoTypes = {
-    id: IdType;
-    snippet: SnippetType;
-}
-type IdType = {
-    kind: string;
-}
-type SnippetType = {
-    publishedAt: string;
-    title: string;
-    channelTitle: string;
-    thumbnails: { high: { 
-        url: string 
-    }};
-    description: string;
 }
 
 const Video = ({videoData, onClick}: VideoDataType) => {
-    const [ timeOfPublishing , setTimeOfPublishing ] = useState('');
+
+    const { video } = videoData;
+    const { title, author, thumbnails, publishedTimeText} = video;  
+  
+/*     const [ url ] = thumnails; */
+
+   /*  const [ timeOfPublishing , setTimeOfPublishing ] = useState('');
     const { snippet, id } = videoData;
     const { kind } = id;
     const { channelTitle, title, publishedAt, thumbnails, description } = snippet;
@@ -51,11 +50,11 @@ const Video = ({videoData, onClick}: VideoDataType) => {
             const result = Math.floor(difference/365);
             setTimeOfPublishing(`${result} year ago`);
         }
-    }
+    } */
     //Razdovjiti channel card i video card
     //Za search pogledaj debounce
     
-    if(kind === "youtube#channel") return(
+    /* if(kind === "youtube#channel") return(
         <div className='channel-icon'>
             <img src={high.url}/>
             <div className='channel-icon-content'>
@@ -63,14 +62,14 @@ const Video = ({videoData, onClick}: VideoDataType) => {
                 <h3>{description}</h3>
             </div>
         </div>
-    )
-    else return(
+    ) */
+    return(
         <div className='video' onClick={onClick}>
-            <img src={high.url}/> 
+            <img src={thumbnails[1].url}/> 
             <div className='video-content'>
                 <h1>{title}</h1>
-                <h2>{channelTitle}</h2>
-                <h3>{timeOfPublishing}</h3>
+                <h2>{author.title}</h2>
+                <h3>{publishedTimeText}</h3>
             </div>
         </div>
        
