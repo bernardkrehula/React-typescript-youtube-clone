@@ -3,29 +3,26 @@ import Btn from '../../components/Btn/Btn'
 import SingleInput from '../../components/SingleInput/SingleInput'
 import { Link } from 'react-router'
 import { debounce } from 'throttle-debounce';
-import { getDataApi } from '../../api/getDataApi';
 import { connectionContext } from '../../useContext/ConnectionProvider';
-import { useState } from 'react';
 
-const Header = () => {
-    const { loadingAnimation, getData } = connectionContext();
-    
-    const {data} = getDataApi(searchValue);
+type HeaderTypes = {
+    setValue: (value: string) => void;
+}
+
+const Header = ({setValue, getData}: HeaderTypes) => {
+    const { loadingAnimation } = connectionContext();
 
     const searchContent = debounce(1000,
         (e: React.ChangeEvent<HTMLInputElement>) => {
             //Get data with debounce
-
-            setValue(e.target.value);
+            const value = e.target.value;
+            setValue(value);
             loadingAnimation();
         }
     )
     const searchOnEnter = async(e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
             setValue(e.currentTarget.value);
-            //Get data
-
-            //getDataApi(e.currentTarget.value);
             e.currentTarget.value = '';
             loadingAnimation();
         }

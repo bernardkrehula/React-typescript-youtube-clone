@@ -1,6 +1,6 @@
 import './Menu.css'
 import { connectionContext } from '../../useContext/ConnectionProvider';
-import MenuData from '#components/data/MenuData';
+import MenuData from '../../data/MenuData';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 const Menu = () => {
     const { loaded, loadingAnimation } = connectionContext();

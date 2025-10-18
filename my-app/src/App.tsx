@@ -4,6 +4,8 @@ import Header from './layout/Header';
 import Menu from './layout/Menu';
 import ConnectionProvider from './useContext/ConnectionProvider';
 import SingleVideo from './pages/SingleVideo/SingleVideo';
+import { useEffect, useState } from 'react';
+import { useDataApi } from './api/getDataApi';
 
 //Instalirati react dev tools
 
@@ -12,14 +14,18 @@ function App() {
   //Napraviti poseban input za menu filter input
   //Dodaj type alias glavne foldere
   const [ searchValue, setValue ] = useState<string>('');
+  const [ fetchedData,  setFetchedData ] = useState({});
+  const { data, isLoading, isPending } = useDataApi(searchValue);
+
+  if(!isPending) console.log(data, isLoading)
 
   return (
     <div className='main'>
       <ConnectionProvider>
-      <Header />
+      <Header setValue={setValue} />
         <div className='main-content'>
           <Menu />
-          <Outlet />
+          <Outlet searchValue={searchValue}/>
           <SingleVideo />
         </div>
       </ConnectionProvider>

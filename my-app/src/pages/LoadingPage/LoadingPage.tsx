@@ -3,7 +3,11 @@ import './LoadingPage.css'
 import youtubeVideosData from "../../data/youtubeVideosData";
 import { connectionContext } from "../../useContext/ConnectionProvider";
 
-const LoadingPage = ({}) => {
+type LoadingPageType = {
+    searchValue: string
+}
+
+const LoadingPage = ({searchValue}: LoadingPageType) => {
     const ytData = youtubeVideosData;
     const { hideMenu, isHidden } = connectionContext();
     if(isHidden) return(
