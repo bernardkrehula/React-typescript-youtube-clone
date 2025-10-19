@@ -19,7 +19,7 @@ type VideoDataType = {
 const Video = ({videoData, onClick}: VideoDataType) => {
 
     const { video } = videoData;
-    const { title, author, thumbnails, publishedTimeText} = video;  
+    const { title, author, thumbnails, publishedTimeText } = video;  
   
 /*     const [ url ] = thumnails; */
 
@@ -63,9 +63,9 @@ const Video = ({videoData, onClick}: VideoDataType) => {
             </div>
         </div>
     ) */
-    return(
+   return(
         <div className='video' onClick={onClick}>
-            <img src={thumbnails[1].url}/> 
+            <img src={thumbnails[0].url}/> 
             <div className='video-content'>
                 <h1>{title}</h1>
                 <h2>{author.title}</h2>

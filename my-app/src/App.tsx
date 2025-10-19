@@ -7,22 +7,18 @@ import SingleVideo from './pages/SingleVideo/SingleVideo';
 import { useEffect, useState } from 'react';
 import { useDataApi } from './api/getDataApi';
 
-//Instalirati react dev tools
-
 function App() {
-  //Dignuti useState u app iz headera
-  //Napraviti poseban input za menu filter input
-  //Dodaj type alias glavne foldere
+  
   const [ searchValue, setValue ] = useState<string>('');
-  const { data, isLoading, isPending } = useDataApi(searchValue);
-
+  const { data, isFetched } = useDataApi(searchValue);
+ 
   return (
     <div className='main'>
       <ConnectionProvider>
       <Header setValue={setValue} />
         <div className='main-content'>
           <Menu />
-          <Outlet context={{data}}/>
+          <Outlet context={{data, isFetched}}/>
           <SingleVideo />
         </div>
       </ConnectionProvider>

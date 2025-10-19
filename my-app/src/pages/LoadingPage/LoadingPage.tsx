@@ -33,20 +33,19 @@ type LoadingPageDataType = {
 
 const LoadingPage = () => {
     const { hideMenu, isHidden } = connectionContext();
-    const { data } = useOutletContext<{ data: LoadingPageDataType }>();
-    const { newData } = fetcheData;
-/* 
+    const { data, isFetched } = useOutletContext<{ data: LoadingPageDataType, isFetched: boolean }>();
+ 
     useEffect(() => {
-        console.log(data)
-    },[data]) */
+        console.log(data) 
+    },[data]) 
 
-    if(isHidden) return(
+    if(isFetched) return(
         <div className="homepage-parent">
             <div className="homepage">
-               {newData.contents.map((data, index) => {
+               {data.data.contents.map((data, index) => {
                     
-                    return(
-                        <Video key={index} videoData={data} onClick={hideMenu}></Video>
+                    if(data.type === 'video')return(
+                        <Video key={index} videoData={data} onClick={hideMenu} isFetched={isFetched}></Video>
                     )
                })}
             </div>
