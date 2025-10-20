@@ -1,11 +1,11 @@
 import parse from "html-react-parser";
 import { Link } from "react-router";
 import './MenuIcon.css'
-import SearchMenu from "../SearchMenu/SearchMenu";
 
 type MenuIcon = {
     linkData: LinkDataType;
     onClick?: (value: string) => void;
+    activeLink: boolean;
 }
 type LinkDataType = {
     title: string;
@@ -13,16 +13,17 @@ type LinkDataType = {
     icon: string;
 }
 
-const MenuIcon = ({linkData, onClick}: MenuIcon) => {
+const MenuIcon = ({linkData, onClick, activeLink}: MenuIcon) => {
     const { title, path, icon } = linkData;
 
     const handleOnClick = () => {
+        //Send route for api call
         if(onClick) onClick(title);
     }
    
 
     return(
-        <Link to={path} onClick={handleOnClick}>
+        <Link to={path} onClick={handleOnClick} style={{backgroundColor: activeLink ? '#252525' : ''}}>
             <div className='single-category'>
                  {parse(icon)}
                 <h2>{title}</h2>

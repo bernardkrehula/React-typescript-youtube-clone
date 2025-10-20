@@ -5,12 +5,15 @@ import Menu from './layout/Menu';
 import ConnectionProvider from './useContext/ConnectionProvider';
 import SingleVideo from './pages/SingleVideo/SingleVideo';
 import { useEffect, useState } from 'react';
-import { useDataApi } from './api/getDataApi';
+import { useDataApi } from './api/api';
 
 function App() {
-  
   const [ searchValue, setValue ] = useState<string>('');
   const { data, isFetched } = useDataApi(searchValue);
+  
+  useEffect(() => {
+    console.log(searchValue)
+  },[searchValue])
  
   return (
     <div className='main'>
