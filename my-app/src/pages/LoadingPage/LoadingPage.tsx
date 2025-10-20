@@ -1,10 +1,8 @@
 import Video from "../../components/Video/Video";
 import './LoadingPage.css'
-import youtubeVideosData from "../../data/youtubeVideosData";
 import { connectionContext } from "../../useContext/ConnectionProvider";
 import { useEffect } from "react";
 import { useOutletContext } from 'react-router';
-import fetcheData from "../../data/FetchedData";
 
 type LoadingPageDataType = {
     fetchedData?: {
@@ -32,20 +30,20 @@ type LoadingPageDataType = {
 }
 
 const LoadingPage = () => {
-    const { hideMenu, isHidden } = connectionContext();
+    const { hideMenu } = connectionContext();
     const { data, isFetched } = useOutletContext<{ data: LoadingPageDataType, isFetched: boolean }>();
  
-    useEffect(() => {
+/*     useEffect(() => {
         console.log(data) 
     },[data]) 
-
+ */
     if(isFetched) return(
         <div className="homepage-parent">
             <div className="homepage">
                {data.data.contents.map((data, index) => {
                     
                     if(data.type === 'video')return(
-                        <Video key={index} videoData={data} onClick={hideMenu} isFetched={isFetched}></Video>
+                        <Video key={index} videoData={data} onClick={hideMenu}></Video>
                     )
                })}
             </div>

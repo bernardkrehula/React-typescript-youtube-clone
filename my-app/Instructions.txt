@@ -23,7 +23,7 @@ Napraviti navigaciju izmedu kategorija
 Koristiti react querry tako da kod prvog requesta se pohrane vrijednost da ih se nebi ponovno pozivalo
 
 19.10.
--Instalirati react dev tools
+-Instalirati react dev tools / ✅
 -Napraviti poseban input za menu filter input
 -Dodaj type alias glavne foldere
 -Pomaknuti channel iz video komponente i napraviti posebnu

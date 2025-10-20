@@ -2,8 +2,18 @@ import './Menu.css'
 import { connectionContext } from '../../useContext/ConnectionProvider';
 import MenuData from '../../data/MenuData';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
-const Menu = () => {
+
+type MenuTypes = {
+    setValue: (value: string) => void;
+}
+
+const Menu = ({setValue}: MenuTypes) => {
     const { loaded, loadingAnimation } = connectionContext();
+
+    const handleOnClick = (value: string) => {
+        loadingAnimation();
+        setValue(value);
+    }
 
     //Render links
     return(
@@ -14,7 +24,7 @@ const Menu = () => {
                 {MenuData.map((linkData, index) => {
 
                     return(
-                        <MenuIcon key={index} linkData={linkData} onClick={loadingAnimation}></MenuIcon>
+                        <MenuIcon key={index} linkData={linkData} onClick={handleOnClick}></MenuIcon>
                      )
                 })}
                 </div>

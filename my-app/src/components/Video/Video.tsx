@@ -1,6 +1,4 @@
 import './Video.css'
-import { differenceInDays } from 'date-fns';
-import { useEffect, useState } from 'react';
 
 type VideoDataType = {
     videoData?: {

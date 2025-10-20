@@ -4,12 +4,12 @@ type InputTypes = {
     placeholder: string;
     variation: string;
     onChange: () => void;
-    onKeydown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+    onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const SingleInput = ({variation, placeholder, onChange, onKeydown}: InputTypes) =>   {
+const SingleInput = ({variation, placeholder, onChange, onKeyDown}: InputTypes) =>   {
     return(
-        <input className={`basicintput ${variation}`} placeholder={placeholder} onChange={onChange} onKeyDown={onKeydown}></input>
+        <input className={`basicintput ${variation}`} placeholder={placeholder} onChange={onChange} onKeyDown={onKeyDown}></input>
     )
 }
 

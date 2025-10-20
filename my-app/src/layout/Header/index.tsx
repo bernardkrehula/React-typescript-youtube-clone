@@ -22,6 +22,7 @@ const Header = ({setValue}: HeaderTypes) => {
     )
     const searchOnEnter = async(e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === 'Enter'){
+            //Get data with enter key
             setValue(e.currentTarget.value);
             e.currentTarget.value = '';
             loadingAnimation();

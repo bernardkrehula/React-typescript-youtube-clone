@@ -17,7 +17,7 @@ function App() {
       <ConnectionProvider>
       <Header setValue={setValue} />
         <div className='main-content'>
-          <Menu />
+          <Menu setValue={setValue}/>
           <Outlet context={{data, isFetched}}/>
           <SingleVideo />
         </div>
