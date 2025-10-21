@@ -8,55 +8,55 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: '/Homepage',
+                path: 'Homepage',
                 element: <LoadingPage />
             },
             {
-                path: '/Trending',
+                path: 'Trending',
                 element: <LoadingPage />
             },
             {
-                path: '/Coding',
+                path: 'Coding',
                 element: <LoadingPage />
             },
             {
-                path: '/Javascript',
+                path: 'Javascript',
                 element: <LoadingPage />
             },
             {
-                path: '/ReactJS',
+                path: 'ReactJS',
                 element: <LoadingPage />
             },
             {
-                path: '/Music',
+                path: 'Music',
                 element: <LoadingPage />
             },
             {
-                path: '/Education',
+                path: 'Education',
                 element: <LoadingPage />
             },
             {
-                path: '/Podcast',
+                path: 'Podcast',
                 element: <LoadingPage />
             },
             {
-                path: '/Movie',
+                path: 'Movie',
                 element: <LoadingPage />
             },
             {
-                path: '/Gaming',
+                path: 'Gaming',
                 element: <LoadingPage />
             },
             {
-                path: '/Live',
+                path: 'Live',
                 element: <LoadingPage />
             },
             {
-                path: '/Fashion',
+                path: 'Fashion',
                 element: <LoadingPage />
             },
             {
-                path: '/Beauty',
+                path: 'Beauty',
                 element: <LoadingPage />
             }
         ]

@@ -12,8 +12,8 @@ function App() {
   const { data, isFetched } = useDataApi(searchValue);
   
   useEffect(() => {
-    console.log(searchValue)
-  },[searchValue])
+    console.log(data)
+  },[isFetched])
  
   return (
     <div className='main'>
