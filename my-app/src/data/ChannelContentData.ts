@@ -1,4 +1,4 @@
-const ChannelContentData = {
+export const ChannelContentData = {
     "artistBio": null,
     "avatar": [
         {

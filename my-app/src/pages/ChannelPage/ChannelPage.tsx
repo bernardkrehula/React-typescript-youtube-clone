@@ -1,21 +1,38 @@
 import './ChannelPage.css'
 import { ChannelVideos } from '#/data/ChannelVideos'
-import ChannelVideo from '#/components/ChannelVideo/ChannelVideo'
+import { ChannelContentData } from '#/data/ChannelContentData'
 import Video from '#/components/Video/Video'
 
-const ChannelPage = () => {
+const ChannelPage = ({channelData, channelVideos}) => {
+    const { avatar, banner, title, username, stats, description } = ChannelContentData;
+    const { desktop } = banner;
+    const lastBanner = desktop[desktop.length - 1];
+    const { subscribers, videos} = stats;
+    console.log(lastBanner.url)
+
+    function formatViews(views: number): string {
+        if (views >= 1_000_000) {
+            // over milion 
+            return (views / 1_000_000).toFixed(2).replace(/\.?0+$/, '') + 'M';
+        } else if (views >= 1_000) {
+            // over tousand 
+            return (views / 1_000).toFixed(1).replace(/\.0$/, '') + 'k';
+        } else {
+            return views.toString();
+        }
+    }
 
     return(
         <div className="channel-page">
-            <img className='banner' src="https://yt3.googleusercontent.com/5KWiriZZ_KEoEdSMFTJKj2M6vR_XSiRZeQ-ix0cvG3TGZuGoi8sfAjrSiZAP0GzXBkmF8ZGytw=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"/>
+            <img className='banner' src={lastBanner.url}/>
             <div className="channel-logo">
-                <img src="https://yt3.googleusercontent.com/nxYrc_1_2f77DoBadyxMTmv7ZpRZapHR5jbuYe7PlPd5cIRJxtNNEYyOC0ZsxaDyJJzXrnJiuDE=s900-c-k-c0x00ffffff-no-rj"/>
+                <img src={avatar[0].url}/>
                 <div className='channel-content'>
-                    <h2>Ozbiljne Teme</h2>
+                    <h2>{title}</h2>
                     <div className='channel-data'>
-                        <h3>@Ozbiljne Teme</h3>
-                        <h4>• 581 tis. pretplatnika</h4>
-                        <h4>• 338 videozapisa</h4>
+                        <h3>{username}</h3>
+                        <h4>• {formatViews(subscribers)} subscribers</h4>
+                        <h4>• {videos} videos</h4>
                     </div>
                     <h4 className='channel-paragraph'>Istorija, geografija i kritike društva na zabavan način!</h4>
                 </div>
@@ -23,7 +40,7 @@ const ChannelPage = () => {
             <div className='channel-videos'>
                 {ChannelVideos.contents.map((videoData, index) => {
                
-                    if(videoData.type === 'video')return(
+                    return(
                         <Video key={index} videoData={videoData}/>
                     )
                 })}
