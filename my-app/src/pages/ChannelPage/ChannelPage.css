@@ -1,0 +1,42 @@
+.channel-page{
+    padding: 0px 40px;
+}
+.banner{
+    width: 100%;
+    border-radius: 20px;
+}
+.channel-logo{
+    display: flex;
+    color: white;
+    gap: 10px;
+    align-items: center;
+}
+.channel-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.channel-content h2{
+  font-size: 3.6rem;
+}
+.channel-data{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: -8px;
+}
+.channel-data h3{
+    font-size: 1.6rem;
+}
+.channel-data h4{
+    font-size: 1.6rem;
+    color: rgb(160, 160, 160);
+}
+.channel-logo img{
+    width: 150px;
+    border-radius: 100%;
+    margin-top: 20px;
+}
+.channel-paragraph{
+    font-size: 1.3rem;
+}

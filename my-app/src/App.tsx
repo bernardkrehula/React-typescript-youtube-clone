@@ -16,12 +16,8 @@ function App() {
 
   useEffect(() => {
     console.log(videoData, channelData, "radi");
-    console.log(clickValue, channelData)
+
   }, [isFetched]);
-  
-  useEffect(() => {
-    console.log(clickValue, channelData)
-  }, [channelData])
 
   return (
     <div className="main">

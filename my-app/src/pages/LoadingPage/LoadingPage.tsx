@@ -4,6 +4,8 @@ import { connectionContext } from "../../useContext/ConnectionProvider";
 import { useEffect } from "react";
 import { useOutletContext } from 'react-router';
 import Channel from "../../components/Channel/Channel";
+import ChannelPage from "../ChannelPage/ChannelPage";
+import youtubeVideosData from "#/data/youtubeVideosData";
 
 type LoadingPageDataType = {
     data?: {
@@ -42,9 +44,8 @@ const LoadingPage = () => {
         setClickValue(value);
         hideMenu();
     }
-
     if(!isHidden && isFetched) return(
-        <div className="homepage-parent">
+        <div className="loadingpage-parent">
             <div className="homepage">
                {videoData?.data?.contents?.map((videoData, index: number) => {
                      
@@ -56,7 +57,14 @@ const LoadingPage = () => {
                     )
                })}
             </div>
+            
         </div>   
+    )
+    if(isHidden) return (
+        <div className="loadingpage-parent">
+            <ChannelPage />
+            <Video />
+        </div> 
     )
 }
 
