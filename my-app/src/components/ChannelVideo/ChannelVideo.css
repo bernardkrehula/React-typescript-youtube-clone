@@ -1,31 +1,25 @@
-.video{
+.channel-video{
     width: 380px;
     border-radius: 10px;
     padding-bottom: 10px;
     cursor: pointer;
 }
-.video-content{
+.channel-video-content{
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 12px;
     color: white;
 }
-.video-content h1{
+.channel-video-content h1{
     font-size: 1.9rem;
 }
-.video-content h2{
+.channel-video-content h2{
     font-size: 1.7rem;
     color: rgb(171, 171, 171);
 }
-.video-content h3{
+.channel-video-content h3{
     font-size: 1.5rem;
     color: rgb(171, 171, 171);
     margin-top: -6px;
-}
-.video img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
 }

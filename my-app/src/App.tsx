@@ -15,7 +15,7 @@ function App() {
   const { data: channelData } = getChannelDataApi(clickValue);
 
   useEffect(() => {
-    console.log(videoData, channelData, "radi");
+    /* console.log(channelData, "radi"); */
 
   }, [isFetched]);
 

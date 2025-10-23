@@ -1,4 +1,6 @@
 import './ChannelPage.css'
+import { ChannelVideos } from '#/data/ChannelVideos'
+import ChannelVideo from '#/components/ChannelVideo/ChannelVideo'
 
 const ChannelPage = () => {
 
@@ -17,6 +19,12 @@ const ChannelPage = () => {
                     <h4 className='channel-paragraph'>Istorija, geografija i kritike društva na zabavan način!</h4>
                 </div>
             </div>
+            {ChannelVideos.contents.map((data, index) => {
+               
+                    if(data.type === 'video')return(
+                        <ChannelVideo key={index} data={data}/>
+                    )
+                })}
         </div>
     )
 }

@@ -18,9 +18,9 @@ const Menu = ({setValue}: MenuTypes) => {
         setActiveLink(value);
     }
     //Load homepage videos on after first loading
-    useEffect(() => {
+    /* useEffect(() => {
         handleOnClick(activeLink);
-    },[]) 
+    },[])  */
 
     //Render links
     return(
