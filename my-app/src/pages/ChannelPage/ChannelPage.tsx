@@ -8,7 +8,7 @@ const ChannelPage = ({channelData, channelVideos}) => {
     const { desktop } = banner;
     const lastBanner = desktop[desktop.length - 1];
     const { subscribers, videos} = stats;
-    console.log(lastBanner.url)
+    console.log(description.length)
 
     function formatViews(views: number): string {
         if (views >= 1_000_000) {
@@ -21,6 +21,8 @@ const ChannelPage = ({channelData, channelVideos}) => {
             return views.toString();
         }
     }
+    const limit = 60;
+    const shortText = description.length > limit ? description.slice(0, limit) + '...' : description;
 
     return(
         <div className="channel-page">
@@ -34,7 +36,7 @@ const ChannelPage = ({channelData, channelVideos}) => {
                         <h4>• {formatViews(subscribers)} subscribers</h4>
                         <h4>• {videos} videos</h4>
                     </div>
-                    <h4 className='channel-paragraph'>Istorija, geografija i kritike društva na zabavan način!</h4>
+                    <h4 className='channel-paragraph'>{shortText}</h4>
                 </div>
             </div>
             <div className='channel-videos'>
