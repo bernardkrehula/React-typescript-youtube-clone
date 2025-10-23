@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import { useOutletContext } from 'react-router';
 import Channel from "../../components/Channel/Channel";
 import ChannelPage from "../ChannelPage/ChannelPage";
-import { ChannelVideos } from "#/data/ChannelVideos";
-import ChannelVideo from "#/components/ChannelVideo/ChannelVideo";
 
 type LoadingPageDataType = {
     data?: {
@@ -64,9 +62,6 @@ const LoadingPage = () => {
     if(!isHidden) return (
         <div className="loadingpage-parent">
             <ChannelPage />
-            
-                
-            
         </div> 
     )
 }
