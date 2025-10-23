@@ -12,11 +12,11 @@ type ConnectionProviderType = {
 const UIProvider = createContext<ConnectionProviderType | undefined>(undefined);
 
 const ConnectionProvider = ({children}: {children: ReactNode}) => {
-    const [ isHidden, setIsHidden ] = useState(true);
+    const [ isHidden, setIsHidden ] = useState(false);
     const [ loaded, setloading ] = useState(false);
     const [ fetchedData, setFetchedData ] = useState<void | undefined>({});
 
-    const hideMenu = () => setIsHidden(false);
+    const hideMenu = () => setIsHidden(true);
     const loadingAnimation = () => {
         setloading(true);
         setTimeout(() => {

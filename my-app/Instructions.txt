@@ -29,6 +29,9 @@ Koristiti react querry tako da kod prvog requesta se pohrane vrijednost da ih se
 -Pomaknuti channel iz video komponente i napraviti posebnu
 -Napraviti posebni search menu za navigaciju izmedu pages
 
+21.10 
+-Odraditi display channel content
+
 
 
 

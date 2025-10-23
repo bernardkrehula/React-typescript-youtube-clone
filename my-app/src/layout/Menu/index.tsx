@@ -9,7 +9,7 @@ type MenuTypes = {
 }
 
 const Menu = ({setValue}: MenuTypes) => {
-    const { loaded, loadingAnimation } = connectionContext();
+    const { loaded, loadingAnimation, isHidden } = connectionContext();
     const [ activeLink, setActiveLink ] = useState<string>('Homepage');
 
     const handleOnClick = (value: string) => {
@@ -26,7 +26,7 @@ const Menu = ({setValue}: MenuTypes) => {
     return(
         <>
             <div className='loading-line' style={{width: loaded ? '100%' : '0'}}></div>
-            <div className='menu-parent'>
+            {isHidden ? '' : <div className='menu-parent'>
                 <div className='menu'>
                 {MenuData.map((linkData, index) => {
                     const { title } = linkData;
@@ -36,8 +36,7 @@ const Menu = ({setValue}: MenuTypes) => {
                      )
                 })}
                 </div>
-            </div>
-         
+            </div>}
         </>
     )
 

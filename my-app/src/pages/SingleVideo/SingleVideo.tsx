@@ -18,7 +18,7 @@ const SingleVideo = () => {
     //useContext
     const { isHidden } = connectionContext();
     
-    if(!isHidden) return(
+    if(isHidden) return(
         <div className='single-video'>
             <div className='single-video-icon'>
                 <img src={maxres.url} className='thumbnail'/>
