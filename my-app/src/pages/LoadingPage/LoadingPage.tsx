@@ -6,6 +6,7 @@ import { useOutletContext } from 'react-router';
 import Channel from "../../components/Channel/Channel";
 import ChannelPage from "../ChannelPage/ChannelPage";
 
+
 type LoadingPageDataType = {
     data?: {
         config: {},
@@ -33,7 +34,7 @@ type LoadingPageDataType = {
 
 const LoadingPage = () => {
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, isFetched, setClickValue } = useOutletContext<{ videoData: LoadingPageDataType, isFetched: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>> }>();
+    const { videoData, isFetched, setClickValue, channelData, channelVideos, showChannel, showChannelVideos } = useOutletContext<{ videoData: LoadingPageDataType, isFetched: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData, channelVideos, showChannel: boolean, showChannelVideos: boolean}>();
    
     useEffect(() => {
 /*         console.log(ChannelVideos.contents)
@@ -43,7 +44,7 @@ const LoadingPage = () => {
         setClickValue(value);
         hideMenu();
     }
-    /* if(!isHidden && isFetched) return(
+    if(!isHidden && isFetched) return(
         <div className="loadingpage-parent">
             <div className="homepage">
                {videoData?.data?.contents?.map((videoData, index: number) => {
@@ -58,10 +59,10 @@ const LoadingPage = () => {
             </div>
             
         </div>   
-    ) */
-    if(!isHidden) return (
+    ) 
+    if(!isHidden && showChannel && showChannelVideos) return (
         <div className="loadingpage-parent">
-            <ChannelPage />
+            <ChannelPage channelData={channelData} channelVideos={channelVideos}/>
         </div> 
     )
 }

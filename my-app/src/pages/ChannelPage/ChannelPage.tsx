@@ -2,12 +2,14 @@ import './ChannelPage.css'
 import { ChannelVideos } from '#/data/ChannelVideos'
 import { ChannelContentData } from '#/data/ChannelContentData'
 import Video from '#/components/Video/Video'
+import { useEffect } from 'react'
 
 const ChannelPage = ({channelData, channelVideos}) => {
-    const { avatar, banner, title, username, stats, description } = ChannelContentData;
+    console.log('video: ',channelVideos, 'channelData: ', channelData.data) 
+    const { avatar, banner, title, username, stats, description } = channelData.data;
     const { desktop } = banner;
     const lastBanner = desktop[desktop.length - 1];
-    const { subscribers, videos} = stats;
+    const { subscribers, videos } = stats;
     console.log(description.length)
 
     function formatViews(views: number): string {
@@ -22,7 +24,7 @@ const ChannelPage = ({channelData, channelVideos}) => {
         }
     }
     const limit = 60;
-    const shortText = description.length > limit ? description.slice(0, limit) + '...' : description;
+    const shortDescription = description.length > limit ? description.slice(0, limit) + '...' : description;
 
     return(
         <div className="channel-page">
@@ -36,19 +38,19 @@ const ChannelPage = ({channelData, channelVideos}) => {
                         <h4>• {formatViews(subscribers)} subscribers</h4>
                         <h4>• {videos} videos</h4>
                     </div>
-                    <h4 className='channel-paragraph'>{shortText}</h4>
+                    <h4 className='channel-paragraph'>{shortDescription}</h4>
                 </div>
             </div>
             <div className='channel-videos'>
-                {ChannelVideos.contents.map((videoData, index) => {
-               
+                {channelVideos.data.contents.map((videoData, index) => {
+                    
                     return(
                         <Video key={index} videoData={videoData}/>
                     )
                 })}
             </div> 
         </div>
-    )
+    )    
 }
 
 export default ChannelPage;

@@ -1,5 +1,4 @@
-import { connectionContext } from "../../useContext/ConnectionProvider";
-import { getChannelDataApi } from "#/api/channelApi";
+import './Channel.css'
 
 type Avatar = {
   height: string;

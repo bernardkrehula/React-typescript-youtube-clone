@@ -3,25 +3,27 @@ import { connectionContext } from '../../useContext/ConnectionProvider';
 import MenuData from '../../data/MenuData';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 import { useEffect, useState } from 'react';
+import { getChannelVideosApi } from "#/api/channelVideosApi";
 
 type MenuTypes = {
     setValue: (value: string) => void;
 }
 
-const Menu = ({setValue}: MenuTypes) => {
+const Menu = ({setValue, setClickValue}: MenuTypes) => {
     const { loaded, loadingAnimation, isHidden } = connectionContext();
     const [ activeLink, setActiveLink ] = useState<string>('Homepage');
 
     const handleOnClick = (value: string) => {
-        loadingAnimation();
+        /* loadingAnimation();
         setValue(value);
-        setActiveLink(value);
+        setActiveLink(value); */
+        setClickValue('UCX6OQ3DkcsbYNE6H8uQQuVA')
     }
     //Load homepage videos on after first loading
-    useEffect(() => {
+    /* useEffect(() => {
         handleOnClick(activeLink);
     },[]) 
-
+ */
     //Render links
     return(
         <>

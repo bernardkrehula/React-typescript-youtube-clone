@@ -1,36 +1,37 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-const key = '265daabe37msh254ff0a0c223316p10d4f3jsn87746d7133f7';
+const key = '626dfad1a1msheb6bc4ea7fe69fcp1cc550jsnff35c70ac520';
 
-const fetchDataApi = async(channelID: string) => {
+export const fetchDataApi = async(channelID: string) => {
     const options = {
     method: 'GET',
     url: 'https://youtube138.p.rapidapi.com/channel/videos/',
     params: {
         id: channelID,
+        filter: 'videos_latest',
         hl: 'en',
         gl: 'US'
     },
     headers: {
-        'x-rapidapi-key': 'key',
+        'x-rapidapi-key': key,
         'x-rapidapi-host': 'youtube138.p.rapidapi.com'
     }
     };
 
     try {
         const response = await axios.request(options);
-        console.log(response.data);
+        return response;
     } catch (error) {
         console.error(error);
     }
 }
 
-export const getChannelDataApi = (value: string) => {
+export const getChannelVideosApi = (channelID: string) => {
     return useQuery({
-        queryKey: [value],
-        queryFn: () => fetchDataApi(value),
-        enabled: !!value,
+        queryKey: ['channel-videos', channelID],
+        queryFn: () => fetchDataApi(channelID),
+        enabled: !!channelID,
     })
 }
 //UCX6OQ3DkcsbYNE6H8uQQuVA - Mrbeast
