@@ -13,7 +13,7 @@ const fetchDataApi = async(videoID: string) => {
         gl: 'US'
     },
     headers: {
-        'x-rapidapi-key': key,
+        'x-rapidapi-key': 'key',
         'x-rapidapi-host': 'youtube138.p.rapidapi.com'
     }
     };
@@ -26,9 +26,9 @@ const fetchDataApi = async(videoID: string) => {
     }
 }
 
-export const getChannelDataApi = (value: string) => {
+export const getVideoDetailsApi = (value: string) => {
     return useQuery({
-        queryKey: [ ,value],
+        queryKey: ['video-details', value],
         queryFn: () => fetchDataApi(value),
         enabled: !!value,
     })
