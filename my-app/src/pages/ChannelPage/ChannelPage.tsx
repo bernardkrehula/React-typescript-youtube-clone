@@ -1,11 +1,7 @@
 import './ChannelPage.css'
-import { ChannelVideos } from '#/data/ChannelVideos'
-import { ChannelContentData } from '#/data/ChannelContentData'
 import Video from '#/components/Video/Video'
-import { useEffect } from 'react'
 
 const ChannelPage = ({channelData, channelVideos}) => {
-    console.log('video: ',channelVideos, 'channelData: ', channelData.data) 
     const { avatar, banner, title, username, stats, description } = channelData.data;
     const { desktop } = banner;
     const lastBanner = desktop[desktop.length - 1];

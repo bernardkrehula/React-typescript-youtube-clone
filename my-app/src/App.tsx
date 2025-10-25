@@ -12,22 +12,22 @@ import { getChannelVideosApi } from "./api/channelVideosApi";
 function App() {
   const [searchValue, setValue] = useState<string>("");
   const [clickValue, setClickValue] = useState<string>("");
-  const { data: videoData, isFetched } = useDataApi(searchValue);
+  const { data: videoData, isFetched: showCategory } = useDataApi(searchValue);
   const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
   const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
 
   useEffect(() => {
-  /*  console.log(channelVideos, "radi");  */
-  }, [showChannelVideos, clickValue]);
+    console.log(videoData, showCategory, "radi"); 
+  }, [showCategory]);
 
   return (
     <div className="main">
       <ConnectionProvider>
         <Header setValue={setValue} />
         <div className="main-content">
-          <Menu setValue={setValue} setClickValue={setClickValue}/>
+          <Menu setValue={setValue}/>
           <Outlet
-            context={{ videoData, isFetched, channelData, setClickValue, channelVideos, showChannel, showChannelVideos}}
+            context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos}}
           />
           {/*           <SingleVideo />
            */}
