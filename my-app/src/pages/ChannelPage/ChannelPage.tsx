@@ -1,7 +1,59 @@
 import './ChannelPage.css'
 import Video from '#/components/Video/Video'
 
-const ChannelPage = ({channelData, channelVideos}) => {
+type ChannelPageType = {
+    channelData: {
+        data: {
+            avatar: [{ height: number, url: string, width: number}];
+            badges: [{ text: string, type: string }];
+            banner: {
+                desktop: [{ height: number, url: string, width: number }]
+            };
+            canonicalBaseUrl: string;
+            channelId: string;
+            description: string;
+            stats: { subscribers: number, subscribersText: string, videos: number },
+            title: string;
+            username: string;
+        },
+        type: string;
+    },
+    channelVideos?: {
+        data: {
+            contents: [
+                {
+                    type: string;
+                    video: {
+                    badges: [],
+                    isLiveNow: boolean,
+                    lengthSeconds: number,
+                    movingThumbnails: [
+                        {
+                            height: number,
+                            url: string,
+                            width: number;
+                        }
+                    ],
+                    publishedTimeText: string,
+                    stats: {
+                        views: number
+                    },
+                    thumbnails: [
+                        {
+                            height: number,
+                            url: string,
+                            width: number
+                        }
+                    ],
+                    title: string,
+                    videoId: string
+            }
+        }]
+        }
+    },
+}
+
+const ChannelPage = ({channelData, channelVideos}: ChannelPageType) => {
     const { avatar, banner, title, username, stats, description } = channelData.data;
     const { desktop } = banner;
     const lastBanner = desktop[desktop.length - 1];
@@ -38,7 +90,7 @@ const ChannelPage = ({channelData, channelVideos}) => {
                 </div>
             </div>
             <div className='channel-videos'>
-                {channelVideos.data.contents.map((videoData, index) => {
+                {channelVideos?.data.contents.map((videoData, index) => {
                     
                     return(
                         <Video key={index} videoData={videoData}/>
