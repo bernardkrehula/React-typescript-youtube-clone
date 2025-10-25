@@ -6,7 +6,7 @@ import singleVideoComments from '../../data/singleVideoComments';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
 
-const SingleVideo = () => {
+const SingleVideo = ({clickedVideo, showClickedVideo}) => {
     //Single video data
     const { items } = singleVideoData;
     const [ firstItem ] = items;
@@ -18,7 +18,7 @@ const SingleVideo = () => {
     //useContext
     const { isHidden } = connectionContext();
     
-    if(isHidden) return(
+    if(isHidden && ) return(
         <div className='single-video'>
             <div className='single-video-icon'>
                 <img src={maxres.url} className='thumbnail'/>

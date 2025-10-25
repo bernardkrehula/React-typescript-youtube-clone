@@ -1,36 +1,47 @@
 import './Video.css'
 
 type VideoDataType = {
-    videoData?: {
+    videoData: {
+        type: string;
         video: {
         title: string;
         author?: {
             title: string;
         }
-        thumbnails: [{ url: string }];
+        thumbnails: [{ height: number, url: string, width: number }];
+        videoId: string;
+        stats: { views: number };
         publishedTimeText: string;
-    };
+        movingThumbnails: [{ height: number, url: string, width: number; }];
+        badges: [];
+        isLiveNow: boolean;
+        lengthSeconds: number;
+        };
     }
-    onClick: () => void;
+    onClick: (value: string) => void;
 }
 
 const Video = ({videoData, onClick}: VideoDataType) => {
 
     const { video } = videoData;
-    const { title, author, thumbnails, publishedTimeText } = video;
+    const { title, author, thumbnails, publishedTimeText, videoId } = video;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
-  
-   return(
-        <div className='video' onClick={onClick}>
-            <img src={lastThumbnail.url}/> 
-            <div className='video-content'>
-                <h1>{title}</h1>
-                <h2>{author ? author.title : ''}</h2>
-                <h3>{publishedTimeText}</h3>
+
+    const videoClick = () => {
+        onClick(videoId);
+    }
+
+    return(
+            <div className='video' onClick={videoClick}>
+                <img src={lastThumbnail.url}/> 
+                <div className='video-content'>
+                    <h1>{title}</h1>
+                    <h2>{author ? author.title : ''}</h2>
+                    <h3>{publishedTimeText}</h3>
+                </div>
             </div>
-        </div>
-       
-    )
+        
+        )
 }
 
 export default Video;

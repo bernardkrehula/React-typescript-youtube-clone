@@ -1,11 +1,11 @@
 import Video from "../../components/Video/Video";
 import './LoadingPage.css'
 import { connectionContext } from "../../useContext/ConnectionProvider";
-import { useEffect } from "react";
 import { useOutletContext } from 'react-router';
 import Channel from "../../components/Channel/Channel";
 import ChannelPage from "../ChannelPage/ChannelPage";
-
+import type { ChannelDataType } from "../ChannelPage/ChannelPage";
+import type { ChannelVideosType } from "../ChannelPage/ChannelPage";
 
 type LoadingPageDataType = {
     data?: {
@@ -34,14 +34,14 @@ type LoadingPageDataType = {
 
 const LoadingPage = () => {
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData, channelVideos, showChannel: boolean, showChannelVideos: boolean}>();
+    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos, setClickedVideoValue } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData: ChannelDataType, channelVideos: ChannelVideosType, showChannel: boolean, showChannelVideos: boolean, setClickedVideoValue: (value: string) => void}>();
    
-    useEffect(() => {
-/*         console.log(ChannelVideos.contents)
- */    }, [])
-
     const handleChannelClick = (value: string) => {
         setClickValue(value);
+        hideMenu(true);
+    }
+    const handleVideoClick = (value: string) => {
+        setClickedVideoValue(value);
         hideMenu(true);
     }
     if(!isHidden && showCategory) return(
@@ -50,7 +50,7 @@ const LoadingPage = () => {
                {videoData?.data?.contents?.map((videoData, index: number) => {
                      
                     if(videoData.type === 'video') return(
-                        <Video key={index} videoData={videoData} onClick={hideMenu}></Video>
+                        <Video key={index} videoData={videoData} onClick={handleVideoClick} ></Video>
                     )
                     if(videoData.type === 'channel') return(
                         <Channel key={index} videoData={videoData} onClick={handleChannelClick} />

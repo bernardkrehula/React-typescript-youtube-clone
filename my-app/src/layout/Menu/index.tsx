@@ -17,7 +17,6 @@ const Menu = ({setValue}: MenuTypes) => {
         setValue(value);
         setActiveLink(value);
         hideMenu(false);
-        console.log(value)
     }
     //Load homepage videos on after first loading
     useEffect(() => {

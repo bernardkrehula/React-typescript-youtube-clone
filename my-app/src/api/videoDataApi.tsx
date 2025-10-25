@@ -5,7 +5,7 @@ const key = '41f4e07bbemshb46d6d6c105e338p1b404cjsn1c8105fc4986';
 
 const fetchDataApi = async(value: string) => {
     const options = {
-    method: 'GET',
+    method: 'GET', 
     url: 'https://youtube138.p.rapidapi.com/search/',
     params: {
         q:  value,

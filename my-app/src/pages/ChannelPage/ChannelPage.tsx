@@ -2,23 +2,11 @@ import './ChannelPage.css'
 import Video from '#/components/Video/Video'
 
 type ChannelPageType = {
-    channelData: {
-        data: {
-            avatar: [{ height: number, url: string, width: number}];
-            badges: [{ text: string, type: string }];
-            banner: {
-                desktop: [{ height: number, url: string, width: number }]
-            };
-            canonicalBaseUrl: string;
-            channelId: string;
-            description: string;
-            stats: { subscribers: number, subscribersText: string, videos: number },
-            title: string;
-            username: string;
-        },
-        type: string;
-    },
-    channelVideos?: {
+    channelData: ChannelDataType;
+    channelVideos?: ChannelVideosType;
+}
+
+export type ChannelVideosType = {
         data: {
             contents: [
                 {
@@ -46,11 +34,26 @@ type ChannelPageType = {
                         }
                     ],
                     title: string,
-                    videoId: string
+                    videoId: string;
             }
         }]
         }
-    },
+}
+export type ChannelDataType = {
+        data: {
+            avatar: [{ height: number, url: string, width: number}];
+            badges: [{ text: string, type: string }];
+            banner: {
+                desktop: [{ height: number, url: string, width: number }]
+            };
+            canonicalBaseUrl: string;
+            channelId: string;
+            description: string;
+            stats: { subscribers: number, subscribersText: string, videos: number },
+            title: string;
+            username: string;
+        },
+        type: string;
 }
 
 const ChannelPage = ({channelData, channelVideos}: ChannelPageType) => {
