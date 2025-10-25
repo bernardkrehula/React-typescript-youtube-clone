@@ -22,13 +22,13 @@ type VideoDataType = {
 }
 
 const Video = ({videoData, onClick}: VideoDataType) => {
-
+    const { type } = videoData;
     const { video } = videoData;
     const { title, author, thumbnails, publishedTimeText, videoId } = video;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
 
     const videoClick = () => {
-        onClick(videoId);
+        onClick(type, videoId);
     }
 
     return(

@@ -13,10 +13,14 @@ function App() {
   const [searchValue, setValue] = useState<string>("");
   const [clickValue, setClickValue] = useState<string>("");
   const [clickedVideoValue, setClickedVideoValue] = useState<string>("");
-  const { data: videoData, isFetched: showCategory } = useDataApi(searchValue);
+  const { data: videoData, isFetched: showCategory } = useDataApi('', searchValue);
   const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
   const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
   const { data: clickedVideo, isFetched: showClickedVideo } = useDataApi(clickedVideoValue);
+
+  useEffect(() => {
+
+  })
 
   return (
     <div className="main">
@@ -25,7 +29,7 @@ function App() {
         <div className="main-content">
           <Menu setValue={setValue}/>
           <Outlet
-            context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos, setClickedVideoValue}}
+            context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos, setClickedVideoValue, setClickedVideoID}}
           />
           <SingleVideo clickedVideo={clickedVideo} showClickedVideo={showClickedVideo}/>
         </div>
