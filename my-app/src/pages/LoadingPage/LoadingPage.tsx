@@ -34,14 +34,14 @@ type LoadingPageDataType = {
 
 const LoadingPage = () => {
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos, setClickedVideoValue } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData: ChannelDataType, channelVideos: ChannelVideosType, showChannel: boolean, showChannelVideos: boolean, setClickedVideoValue: (value: string) => void;}>();
+    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData: ChannelDataType, channelVideos: ChannelVideosType, showChannel: boolean, showChannelVideos: boolean}>();
    
     const handleChannelClick = (value: string) => {
         setClickValue(value);
         hideMenu(true);
     }
     const handleVideoClick = (value: string) => {
-        setClickedVideoValue(value);
+        setClickValue(value);
         hideMenu(true);
     }
     if(!isHidden && showCategory) return(

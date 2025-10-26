@@ -9,7 +9,7 @@ type MenuTypes = {
 }
 
 const Menu = ({setValue}: MenuTypes) => {
-    const { loaded, loadingAnimation, hideMenu } = connectionContext();
+    const { loaded, loadingAnimation, hideMenu, isHidden } = connectionContext();
     const [ activeLink, setActiveLink ] = useState<string>('Homepage');
 
     const handleOnClick = (value: string) => {
@@ -20,11 +20,12 @@ const Menu = ({setValue}: MenuTypes) => {
     }
     //Load homepage videos on after first loading
     useEffect(() => {
-        handleOnClick(activeLink);
+        /*handleOnClick(activeLink);*/
+        hideMenu(true)
     },[]) 
 
     //Render links
-    return(
+    if(!isHidden) return(
         <>
             <div className='loading-line' style={{width: loaded ? '100%' : '0'}}></div>
             <div className='menu-parent'>

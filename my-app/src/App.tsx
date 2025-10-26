@@ -9,19 +9,20 @@ import { useDataApi } from "./api/videoDataApi";
 import { getChannelDataApi } from "./api/channelApi";
 import { getChannelVideosApi } from "./api/channelVideosApi";
 import { getVideoDetailsApi } from "./api/videoDetails";
+import { fetchDataApi, getVideoCommentsApi } from "./api/videoComments";
 
 function App() {
   const [searchValue, setValue] = useState<string>("");
   const [clickValue, setClickValue] = useState<string>("");
-  const [clickedVideoValue, setClickedVideoValue] = useState<string>("");
   const { data: videoData, isFetched: showCategory } = useDataApi(searchValue);
   const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
   const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
-  const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(clickedVideoValue);
+  const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(clickValue);
+  const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(clickValue);
 
   useEffect(() => {
-    console.log(clickedVideoData)
-  },[showClickedVideo])
+    console.log(videoComments)
+  },[showVideoComments])
 
   return (
     <div className="main">
@@ -30,9 +31,9 @@ function App() {
         <div className="main-content">
           <Menu setValue={setValue}/>
           <Outlet
-            context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos, setClickedVideoValue }}
+            context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos }}
           />
-          {/* <SingleVideo clickedVideo={clickedVideoData} showClickedVideo={showClickedVideo}/> */}
+          <SingleVideo clickedVideoData={clickedVideoData} showClickedVideo={showClickedVideo}/> 
         </div>
       </ConnectionProvider>
     </div>
