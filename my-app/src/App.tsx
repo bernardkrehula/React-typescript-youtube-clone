@@ -8,8 +8,9 @@ import { useEffect, useState } from "react";
 import { useDataApi } from "./api/videoDataApi";
 import { getChannelDataApi } from "./api/channelApi";
 import { getChannelVideosApi } from "./api/channelVideosApi";
-import { getVideoDetailsApi } from "./api/videoDetails";
-import { fetchDataApi, getVideoCommentsApi } from "./api/videoComments";
+import { fetchDataApi, getVideoDetailsApi } from "./api/videoDetails";
+import { getVideoCommentsApi } from "./api/videoComments";
+import { getRecomendedVideosApi } from "./api/recomendedVideos";
 
 function App() {
   const [searchValue, setValue] = useState<string>("");
@@ -19,10 +20,11 @@ function App() {
   const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
   const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(clickValue);
   const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(clickValue);
+  const { data: recomendedVideos, isFetched: showRecomendedVideos } = getRecomendedVideosApi(clickValue);
 
   useEffect(() => {
-    console.log(videoComments)
-  },[showVideoComments])
+/*     fetchDataApi('kJQP7kiw5Fk')
+ */  },[])
 
   return (
     <div className="main">

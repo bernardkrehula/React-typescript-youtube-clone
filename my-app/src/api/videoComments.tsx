@@ -20,7 +20,7 @@ export const fetchDataApi = async(videoID: string) => {
 
     try {
         const response = await axios.request(options);
-        console.log(response.data);
+        return response;
     } catch (error) {
         console.error(error);
     }
@@ -34,3 +34,5 @@ export const getVideoCommentsApi = (value: string) => {
     })
 }
 //Random video - kJQP7kiw5Fk
+//
+//Pewdiepie - UC-lHJZR3Gqxm24_Vd_AJ5Yw

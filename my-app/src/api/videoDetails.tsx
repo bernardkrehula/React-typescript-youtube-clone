@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-const key = '41f4e07bbemshb46d6d6c105e338p1b404cjsn1c8105fc4986';
+const key = 'ec0e452206msh6457687ec51e1f6p1b9439jsnb98b8a108017';
 
-const fetchDataApi = async(videoID: string) => {
+export const fetchDataApi = async(videoID: string) => {
     const options = {
     method: 'GET',
     url: 'https://youtube138.p.rapidapi.com/video/details/',
@@ -21,6 +21,7 @@ const fetchDataApi = async(videoID: string) => {
     try {
         const response = await axios.request(options);
         console.log(response.data);
+        return response;
     } catch (error) {
         console.error(error);
     }

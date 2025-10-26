@@ -20,8 +20,8 @@ const Menu = ({setValue}: MenuTypes) => {
     }
     //Load homepage videos on after first loading
     useEffect(() => {
-        /*handleOnClick(activeLink);*/
-        hideMenu(true)
+        /* handleOnClick(activeLink);  */
+        hideMenu(true) 
     },[]) 
 
     //Render links
