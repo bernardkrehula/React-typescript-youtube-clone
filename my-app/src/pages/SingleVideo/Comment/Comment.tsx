@@ -2,15 +2,17 @@ import './Comment.css'
 
 type CommentTypes = {
     commentData: {
-        snippet: {
-        topLevelComment: {
-            snippet: {
-                authorDisplayName: string;
-                authorProfileImageUrl: string;
-                textDisplay: string;
-                publishedAt: string;
-            }
-          }
+        content: string;
+        publishedTimeText: string;
+        author: {
+            avatar: [
+                {
+                    width: number;
+                    url: string;
+                    height: string
+                }
+            ],
+            title: string;
         }
     } 
 }
