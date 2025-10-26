@@ -5,9 +5,11 @@ import recomendedVideos from '../../data/recomendedVideos';
 import singleVideoComments from '../../data/singleVideoComments';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
+import { videoComments } from '#/data/VideoComments';
 
 const SingleVideo = ({clickedVideoData, showClickedVideo}) => {
     //Single video data
+    const { totalCommentsCount, comments } = videoComments;
     const { items } = singleVideoData;
     const [ firstItem ] = items;
     const { snippet, statistics } = firstItem;
@@ -44,10 +46,9 @@ const SingleVideo = ({clickedVideoData, showClickedVideo}) => {
                         </div>
                     </div>
                 </div>
-                <h4 className='comments-count'>{Number(commentCount).toLocaleString()} comments</h4>
+                <h4 className='comments-count'>{Number(totalCommentsCount).toLocaleString()} comments</h4>
                 <div className='comments'>
-                    {singleVideoComments.items.map((data, index) => {
-
+                    {comments.map((data, index) => {
                         return(
                             <Comment key={index} commentData={data}/>
                         )

@@ -1,4 +1,4 @@
-const videoComments = {
+export const videoComments = {
     "status": "success",
     "totalCommentsCount": 4327771,
     "filters": [
@@ -13,7 +13,7 @@ const videoComments = {
             "cursorFilter": "Eg0SC2tKUVA3a2l3NUZrGAYyJSIRIgtrSlFQN2tpdzVGazABeAJCEGNvbW1lbnRzLXNlY3Rpb24%3D"
         }
     ],
-    "comments": [
+    comments: [
         {
             "commentId": "UgwW1S95-KHLW2bUI-14AaABAg",
             "content": "2017: People came to listen song. \n2025: People come to check views.",

@@ -16,22 +16,23 @@ type CommentTypes = {
 }
 
 const Comment = ({commentData}: CommentTypes) => {
-    const { snippet: { topLevelComment: { snippet } } } =  commentData;
-
-    const { authorDisplayName, authorProfileImageUrl, textDisplay, publishedAt} = snippet;
-
-    console.log(snippet)
+    const { author, content, publishedTimeText } = commentData;
+    const { avatar, title } = author;
+    const lastProfileUrl = avatar[avatar.length - 1]
+    const { url } = lastProfileUrl; 
+    
+    
     return(
         <div className="comment">
-            <img src={authorProfileImageUrl}/>
+            <img src={url}/> 
             <div className='comment-content'>
                 <div className='comment-author'>
-                    <h2>{authorDisplayName}</h2>
-                    <h2>{publishedAt}</h2>
+                    <h2>{title}</h2>
+                    <h2>{publishedTimeText}</h2>
                 </div>
-                <p>{textDisplay}</p>
+                <p>{content}</p>
             </div>
         </div>
-    )
+    ) 
 }
 export default Comment;
