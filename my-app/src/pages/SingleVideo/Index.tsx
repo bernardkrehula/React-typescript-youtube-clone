@@ -1,29 +1,36 @@
 import './SingleVideo.css'
-import singleVideoData from '../../data/singleVideoData'
 import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
 import recomendedVideos from '../../data/recomendedVideos';
-import singleVideoComments from '../../data/singleVideoComments';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
-/* import { videoComments } from '#/data/VideoComments';
-import { videoDetails } from '#/data/videoDetails'; */
-
+import type { CommentTypes } from './Comment/Comment';
 type SingleVideoTypes = {
-    videoComments?: {
+    videoComments: {
         totalCommentsCount: number;
-        comments: [{
-
-        }]
+        comments: [CommentTypes]
     }
     clickedVideoData: {
-
+        author: {
+            title: string;
+        }
+        title: string;
+        thumbnails: [{
+            url: string;
+            width: number;
+            height: number;
+        }]
+        stats: {
+            comments: number;
+            likes: number;
+            views: number;
+        }
     }
     showClickedVideo: boolean;
     showVideoComments: boolean;
     showRecomendedVideos: boolean;
 }
 
-const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVideoComments, showRecomendedVideos}: SingleVideoTypes) => {
+const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVideoComments}: SingleVideoTypes) => {
     const { isHidden } = connectionContext();
     console.log(clickedVideoData, 'video-comments:', videoComments)
     //Single video data
@@ -66,7 +73,7 @@ const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVid
                 </div>
                 <h4 className='comments-count'>{Number(totalCommentsCount).toLocaleString()} comments</h4>
                 <div className='comments'>
-                    {comments.map((data, index) => {
+                    {comments.map((data: CommentTypes, index: number) => {
                         return(
                             <Comment key={index} commentData={data}/>
                         )

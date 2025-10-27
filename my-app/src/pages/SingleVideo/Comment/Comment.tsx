@@ -1,6 +1,6 @@
 import './Comment.css'
 
-type CommentTypes = {
+export type CommentTypes = {
     commentData: {
         content: string;
         publishedTimeText: string;
