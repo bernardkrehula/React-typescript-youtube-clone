@@ -13,15 +13,15 @@ export const fetchDataApi = async(videoID: string) => {
         gl: 'US'
     },
     headers: {
-        'x-rapidapi-key': 'key',
+        'x-rapidapi-key': key,
         'x-rapidapi-host': 'youtube138.p.rapidapi.com'
     }
     };
 
     try {
         const response = await axios.request(options);
-        /* console.log(response.data); */
-        return response;
+        console.log(response.data); 
+        return response.data;
     } catch (error) {
         console.error(error);
     }

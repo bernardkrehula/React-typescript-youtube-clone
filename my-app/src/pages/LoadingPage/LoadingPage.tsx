@@ -34,14 +34,14 @@ type LoadingPageDataType = {
 
 const LoadingPage = () => {
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData: ChannelDataType, channelVideos: ChannelVideosType, showChannel: boolean, showChannelVideos: boolean}>();
+    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos, setVideoClickValue } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData: ChannelDataType, channelVideos: ChannelVideosType, showChannel: boolean, showChannelVideos: boolean, setVideoClickValue: React.Dispatch<React.SetStateAction<string>>}>();
    
     const handleChannelClick = (value: string) => {
         setClickValue(value);
-        hideMenu(true);
+        hideMenu(false);
     }
     const handleVideoClick = (value: string) => {
-        setClickValue(value);
+        setVideoClickValue(value);
         hideMenu(true);
     }
     if(!isHidden && showCategory) return(
@@ -60,7 +60,7 @@ const LoadingPage = () => {
             
         </div>   
     ) 
-    if(isHidden && showChannel && showChannelVideos) return (
+    if(!isHidden && showChannel && showChannelVideos) return (
         <div className="loadingpage-parent">
             <ChannelPage channelData={channelData} channelVideos={channelVideos}/>
         </div> 

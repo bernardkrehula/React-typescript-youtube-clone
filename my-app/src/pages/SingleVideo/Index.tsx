@@ -5,22 +5,40 @@ import recomendedVideos from '../../data/recomendedVideos';
 import singleVideoComments from '../../data/singleVideoComments';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
-import { videoComments } from '#/data/VideoComments';
-import { videoDetails } from '#/data/videoDetails';
+/* import { videoComments } from '#/data/VideoComments';
+import { videoDetails } from '#/data/videoDetails'; */
 
-const SingleVideo = ({clickedVideoData, showClickedVideo}) => {
+type SingleVideoTypes = {
+    videoComments?: {
+        totalCommentsCount: number;
+        comments: [{
+
+        }]
+    }
+    clickedVideoData: {
+
+    }
+    showClickedVideo: boolean;
+    showVideoComments: boolean;
+    showRecomendedVideos: boolean;
+}
+
+const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVideoComments, showRecomendedVideos}: SingleVideoTypes) => {
+    const { isHidden } = connectionContext();
+    console.log(clickedVideoData, 'video-comments:', videoComments)
     //Single video data
+    if(isHidden && showClickedVideo && showVideoComments){
     const { totalCommentsCount, comments } = videoComments;
-    const { author, title, thumbnails, stats} = videoDetails; 
+    const { author, title, thumbnails, stats} = clickedVideoData; 
     const { likes, views } = stats;
     const { title: authorName } = author;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
     const { url } = lastThumbnail;
-    
+    console.log(isHidden)
     //useContext
-    const { isHidden } = connectionContext();
     
-    if(isHidden) return(
+    
+    return(
         <div className='single-video'>
             <div className='single-video-icon'>
                 <img src={url} className='thumbnail'/>
@@ -60,10 +78,10 @@ const SingleVideo = ({clickedVideoData, showClickedVideo}) => {
                     return(
                         <RecomendedVideo  key={index} videoData={data}/>
                     )
-            })}
+            })} 
             </div>
         </div>
-    )
+    )} 
 }
 
 export default SingleVideo;
