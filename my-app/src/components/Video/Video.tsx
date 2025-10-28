@@ -30,7 +30,7 @@ const Video = ({videoData, onClick}: VideoDataType) => {
 
     const videoClick = () => {
 /*         onClick(videoId);
- */        navigate(videoId);
+ */        navigate('/' + videoId);
     }
 
     return(

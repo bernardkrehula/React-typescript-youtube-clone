@@ -17,13 +17,11 @@ function App() {
   //Napraviti router tako da se u url prikazuje putanja do kanala ili videa 
   //Preko params potegnuti onda iz url podatke 
   //Promijeniti sve isFetched u isLoading
-  
+
   const [searchValue, setValue] = useState<string>("");
-  const [clickValue, setClickValue] = useState<string>("");
   const [videoClickValue, setVideoClickValue] = useState<string>("");
   const { data: videoData, isFetched: showCategory } = useDataApi(searchValue);
-  const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
-  const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
+  
   const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(videoClickValue);
   const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(videoClickValue);
 

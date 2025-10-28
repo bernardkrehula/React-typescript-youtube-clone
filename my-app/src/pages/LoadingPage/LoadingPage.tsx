@@ -6,6 +6,9 @@ import Channel from "../../components/Channel/Channel";
 import ChannelPage from "../ChannelPage/ChannelPage";
 import type { ChannelDataType } from "../ChannelPage/ChannelPage";
 import type { ChannelVideosType } from "../ChannelPage/ChannelPage";
+import { useState } from "react";
+import { getChannelDataApi } from "#/api/channelApi";
+import { getChannelVideosApi } from "#/api/channelVideosApi";
 
 type LoadingPageDataType = {
     data?: {
@@ -33,8 +36,11 @@ type LoadingPageDataType = {
 }
 
 const LoadingPage = () => {
+    const [clickValue, setClickValue] = useState<string>("");
+    const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
+    const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, showCategory, setClickValue, channelData, channelVideos, showChannel, showChannelVideos, setVideoClickValue } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean, setClickValue: React.Dispatch<React.SetStateAction<string>>, channelData: ChannelDataType, channelVideos: ChannelVideosType, showChannel: boolean, showChannelVideos: boolean, setVideoClickValue: React.Dispatch<React.SetStateAction<string>>}>();
+    const { videoData, showCategory, setVideoClickValue } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean,  showChannelVideos: boolean, setVideoClickValue: React.Dispatch<React.SetStateAction<string>>}>();
    
     const handleChannelClick = (value: string) => {
         setClickValue(value);
