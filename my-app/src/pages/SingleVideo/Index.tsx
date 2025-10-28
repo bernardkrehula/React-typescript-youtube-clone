@@ -4,6 +4,11 @@ import recomendedVideos from '../../data/recomendedVideos';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
 import type { CommentTypes } from './Comment/Comment';
+import { getVideoDetailsApi } from '#/api/videoDetails';
+import { getVideoCommentsApi } from '#/api/videoComments';
+import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
+
 type SingleVideoTypes = {
     videoComments: {
         totalCommentsCount: number;
@@ -29,12 +34,21 @@ type SingleVideoTypes = {
     showVideoComments: boolean;
 }
 
-const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVideoComments}: SingleVideoTypes) => {
+const SingleVideo = () => {
     const { isHidden } = connectionContext();
+    const [ videoId, setVideoId ] = useState<string>("");
+    const { id } = useParams();
+    const { data: clickedVideoData, isLoading: showClickedVideo } = getVideoDetailsApi(videoId);
+    const { data: videoComments, isLoading: showVideoComments } = getVideoCommentsApi(videoId);
 /*     console.log(clickedVideoData, 'video-comments:', videoComments)
  */    //Single video data
+
+    useEffect(() => {
+        setVideoId(id || "");
+    }, [id]);
     
-    if(isHidden && showClickedVideo && showVideoComments){
+    if(!showClickedVideo && !showVideoComments) return 
+
     const { totalCommentsCount, comments } = videoComments;
     const { author, title, thumbnails, stats} = clickedVideoData; 
     const { likes, views } = stats;
@@ -86,7 +100,7 @@ const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVid
             })} 
             </div>
         </div>
-    )} 
+    )
 }
 
 export default SingleVideo;

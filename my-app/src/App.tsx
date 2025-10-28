@@ -20,10 +20,7 @@ function App() {
   //Promijeniti sve isFetched u isLoading
 
   const [searchValue, setValue] = useState<string>("");
-  const [videoClickValue, setVideoClickValue] = useState<string>("");
   const { data: videoData, isLoading: showCategory } = useDataApi(searchValue);
-  const { data: clickedVideoData, isLoading: showClickedVideo } = getVideoDetailsApi(videoClickValue);
-  const { data: videoComments, isLoading: showVideoComments } = getVideoCommentsApi(videoClickValue);
 
   return (
     <div className="main">
