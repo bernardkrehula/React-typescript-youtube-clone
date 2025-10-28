@@ -10,9 +10,14 @@ import { getChannelDataApi } from "./api/channelApi";
 import { getChannelVideosApi } from "./api/channelVideosApi";
 import { getVideoDetailsApi } from "./api/videoDetails";
 import { getVideoCommentsApi } from "./api/videoComments";
-import { fetchDataApi } from "./api/recomendedVideos";
 
 function App() {
+  //Staviti da se searchValue okida samo kad se input promijeni na debounce
+  //Spustiti ostale states 
+  //Napraviti router tako da se u url prikazuje putanja do kanala ili videa 
+  //Preko params potegnuti onda iz url podatke 
+  //Promijeniti sve isFetched u isLoading
+  
   const [searchValue, setValue] = useState<string>("");
   const [clickValue, setClickValue] = useState<string>("");
   const [videoClickValue, setVideoClickValue] = useState<string>("");
@@ -21,10 +26,9 @@ function App() {
   const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
   const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(videoClickValue);
   const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(videoClickValue);
-/*   const { data: recomendedVideos, isFetched: showRecomendedVideos } = getRecomendedVideosApi(clickValue);
- */
+
   useEffect(() => {
-    /* fetchDataApi('mC3tjysJ01E') */
+  /*   fetchDataApi('mC3tjysJ01E')  */
     //mC3tjysJ01E
     //https://youtube138.p.rapidapi.com/video/related-contents/?id=mC3tjysJ01E
    },[])
@@ -38,7 +42,7 @@ function App() {
           <Outlet
             context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos, setVideoClickValue }}
           />
-          <SingleVideo clickedVideoData={clickedVideoData} showClickedVideo={showClickedVideo} videoComments={videoComments} showVideoComments={showVideoComments} /* recomendedVideos={recomendedVideos}  showRecomendedVideos={showRecomendedVideos}*//> 
+          <SingleVideo clickedVideoData={clickedVideoData} showClickedVideo={showClickedVideo} videoComments={videoComments} showVideoComments={showVideoComments} /> 
         </div>
       </ConnectionProvider>
     </div>

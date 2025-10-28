@@ -1,24 +1,21 @@
 import './Comment.css'
 
 export type CommentTypes = {
-    commentData: {
-        content: string;
-        publishedTimeText: string;
-        author: {
-            avatar: [
-                {
-                    width: number;
-                    url: string;
-                    height: string
-                }
-            ],
-            title: string;
-        }
+    content: string;
+    publishedTimeText: string;
+    author: {
+        avatar: [
+            {
+                width: number;
+                url: string;
+                height: string
+            }
+        ],
+        title: string;
     } 
 }
 
-const Comment = ({commentData}: CommentTypes) => {
-    const { author, content, publishedTimeText } = commentData;
+const Comment = ({author, content, publishedTimeText}: CommentTypes) => {
     const { avatar, title } = author;
     const lastProfileUrl = avatar[avatar.length - 1]
     const { url } = lastProfileUrl; 

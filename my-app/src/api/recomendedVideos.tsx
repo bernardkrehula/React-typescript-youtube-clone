@@ -13,7 +13,7 @@ export const fetchDataApi = async(videoID: string) => {
         gl: 'US'
     },
     headers: {
-        'x-rapidapi-key': key,
+        'x-rapidapi-key': 'key',
         'x-rapidapi-host': 'youtube138.p.rapidapi.com'
     }
     };

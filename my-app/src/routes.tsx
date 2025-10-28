@@ -8,6 +8,11 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
+                path: ':id',
+                element: <LoadingPage />
+            },
+            {
+                index: true,
                 path: 'Homepage',
                 element: <LoadingPage />
             },

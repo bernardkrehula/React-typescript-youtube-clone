@@ -7,7 +7,7 @@ import type { CommentTypes } from './Comment/Comment';
 type SingleVideoTypes = {
     videoComments: {
         totalCommentsCount: number;
-        comments: [CommentTypes]
+        comments: CommentTypes[];
     }
     clickedVideoData: {
         author: {
@@ -27,13 +27,13 @@ type SingleVideoTypes = {
     }
     showClickedVideo: boolean;
     showVideoComments: boolean;
-    showRecomendedVideos: boolean;
 }
 
 const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVideoComments}: SingleVideoTypes) => {
     const { isHidden } = connectionContext();
-    console.log(clickedVideoData, 'video-comments:', videoComments)
-    //Single video data
+/*     console.log(clickedVideoData, 'video-comments:', videoComments)
+ */    //Single video data
+    
     if(isHidden && showClickedVideo && showVideoComments){
     const { totalCommentsCount, comments } = videoComments;
     const { author, title, thumbnails, stats} = clickedVideoData; 
@@ -41,10 +41,8 @@ const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVid
     const { title: authorName } = author;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
     const { url } = lastThumbnail;
-    console.log(isHidden)
+   
     //useContext
-    
-    
     return(
         <div className='single-video'>
             <div className='single-video-icon'>
@@ -73,9 +71,9 @@ const SingleVideo = ({clickedVideoData, showClickedVideo, videoComments, showVid
                 </div>
                 <h4 className='comments-count'>{Number(totalCommentsCount).toLocaleString()} comments</h4>
                 <div className='comments'>
-                    {comments.map((data: CommentTypes, index: number) => {
+                    {comments.map((comment, index: number) => {
                         return(
-                            <Comment key={index} commentData={data}/>
+                            <Comment key={index} {...comment}/>
                         )
                     })}
                 </div>

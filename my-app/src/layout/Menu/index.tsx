@@ -3,6 +3,7 @@ import { connectionContext } from '../../useContext/ConnectionProvider';
 import MenuData from '../../data/MenuData';
 import MenuIcon from '../../components/MenuIcon/MenuIcon';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 
 type MenuTypes = {
     setValue: (value: string) => void;
@@ -11,6 +12,7 @@ type MenuTypes = {
 const Menu = ({setValue}: MenuTypes) => {
     const { loaded, loadingAnimation, hideMenu, isHidden } = connectionContext();
     const [ activeLink, setActiveLink ] = useState<string>('Homepage');
+    const navigate = useNavigate();
 
     const handleOnClick = (value: string) => {
         loadingAnimation();
@@ -20,8 +22,9 @@ const Menu = ({setValue}: MenuTypes) => {
     }
     //Load homepage videos on after first loading
     useEffect(() => {
-     /*    handleOnClick(activeLink);  */  
-/*         hideMenu(true)  */
+        handleOnClick(activeLink);
+        navigate('/Homepage');
+    /*         hideMenu(true)  */
     },[]) 
 
     //Render links

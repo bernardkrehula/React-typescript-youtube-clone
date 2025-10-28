@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import './Video.css'
 
 type VideoDataType = {
@@ -22,12 +23,14 @@ type VideoDataType = {
 }
 
 const Video = ({videoData, onClick}: VideoDataType) => {
+    const navigate = useNavigate();
     const { video } = videoData;
     const { title, author, thumbnails, publishedTimeText, videoId } = video;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
 
     const videoClick = () => {
-        onClick(videoId);
+/*         onClick(videoId);
+ */        navigate(videoId);
     }
 
     return(
