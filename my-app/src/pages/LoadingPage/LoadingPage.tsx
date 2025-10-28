@@ -40,7 +40,7 @@ const LoadingPage = () => {
     const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
     const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, showCategory, setVideoClickValue } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean,  showChannelVideos: boolean, setVideoClickValue: React.Dispatch<React.SetStateAction<string>>}>();
+    const { videoData, showCategory } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean,  showChannelVideos: boolean;}>();
    
     const handleChannelClick = (value: string) => {
         setClickValue(value);

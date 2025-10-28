@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 import LoadingPage from "./pages/LoadingPage/LoadingPage";
+import SingleVideo from "./pages/SingleVideo/Index";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
             },
             {
                 path: ':id',
-                element: <LoadingPage />
+                element: <SingleVideo />
             },
             {
                 path: 'Homepage',

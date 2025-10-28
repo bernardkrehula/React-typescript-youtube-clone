@@ -14,22 +14,16 @@ import { getVideoCommentsApi } from "./api/videoComments";
 function App() {
   //Staviti da se searchValue okida samo kad se input promijeni na debounce
   //Spustiti ostale states 
+
   //Napraviti router tako da se u url prikazuje putanja do kanala ili videa 
   //Preko params potegnuti onda iz url podatke 
   //Promijeniti sve isFetched u isLoading
 
   const [searchValue, setValue] = useState<string>("");
   const [videoClickValue, setVideoClickValue] = useState<string>("");
-  const { data: videoData, isFetched: showCategory } = useDataApi(searchValue);
-  
-  const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(videoClickValue);
-  const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(videoClickValue);
-
-  useEffect(() => {
-  /*   fetchDataApi('mC3tjysJ01E')  */
-    //mC3tjysJ01E
-    //https://youtube138.p.rapidapi.com/video/related-contents/?id=mC3tjysJ01E
-   },[])
+  const { data: videoData, isLoading: showCategory } = useDataApi(searchValue);
+  const { data: clickedVideoData, isLoading: showClickedVideo } = getVideoDetailsApi(videoClickValue);
+  const { data: videoComments, isLoading: showVideoComments } = getVideoCommentsApi(videoClickValue);
 
   return (
     <div className="main">
@@ -38,9 +32,8 @@ function App() {
         <div className="main-content">
           <Menu setValue={setValue}/>
           <Outlet
-            context={{ videoData, showCategory, channelData, setClickValue, channelVideos, showChannel, showChannelVideos, setVideoClickValue }}
+            context={{ videoData, showCategory }}
           />
-          <SingleVideo clickedVideoData={clickedVideoData} showClickedVideo={showClickedVideo} videoComments={videoComments} showVideoComments={showVideoComments} /> 
         </div>
       </ConnectionProvider>
     </div>
