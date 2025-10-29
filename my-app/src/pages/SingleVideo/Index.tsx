@@ -40,13 +40,20 @@ const SingleVideo = () => {
     const { id } = useParams();
     const { data: clickedVideoData, isLoading: showClickedVideo } = getVideoDetailsApi(videoId);
     const { data: videoComments, isLoading: showVideoComments } = getVideoCommentsApi(videoId);
-/*     console.log(clickedVideoData, 'video-comments:', videoComments)
- */    //Single video data
 
     useEffect(() => {
         setVideoId(id || "");
     }, [id]);
+
+    useEffect(() => {
+        console.log(clickedVideoData)
+    },[clickedVideoData])
+   /*  
     
+    //Single video data
+
+   
+
     if(!showClickedVideo && !showVideoComments) return 
 
     const { totalCommentsCount, comments } = videoComments;
@@ -100,7 +107,7 @@ const SingleVideo = () => {
             })} 
             </div>
         </div>
-    )
+    ) */ 
 }
 
 export default SingleVideo;

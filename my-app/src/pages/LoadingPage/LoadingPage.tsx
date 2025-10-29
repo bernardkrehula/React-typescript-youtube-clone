@@ -1,14 +1,15 @@
 import Video from "../../components/Video/Video";
 import './LoadingPage.css'
 import { connectionContext } from "../../useContext/ConnectionProvider";
-import { useOutletContext } from 'react-router';
+import { useOutletContext, useParams } from 'react-router';
 import Channel from "../../components/Channel/Channel";
 import ChannelPage from "../ChannelPage/ChannelPage";
 import type { ChannelDataType } from "../ChannelPage/ChannelPage";
 import type { ChannelVideosType } from "../ChannelPage/ChannelPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getChannelDataApi } from "#/api/channelApi";
 import { getChannelVideosApi } from "#/api/channelVideosApi";
+import { videoData } from "#/data/randomVideosData";
 
 type LoadingPageDataType = {
     data?: {
@@ -36,21 +37,27 @@ type LoadingPageDataType = {
 }
 
 const LoadingPage = () => {
-    const [clickValue, setClickValue] = useState<string>("");
-    const { data: channelData, isFetched: showChannel } = getChannelDataApi(clickValue);
-    const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(clickValue);
+    const [channelID, setChannelID] = useState<string>("");
+    const { id } = useParams();
+    const { data: channelData, isFetched: showChannel } = getChannelDataApi(channelID);
+    const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(channelID);
     const { hideMenu, isHidden } = connectionContext();
-    const { videoData, showCategory } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean,  showChannelVideos: boolean;}>();
+    const {  showCategory } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean,  showChannelVideos: boolean;}>();
    
-    const handleChannelClick = (value: string) => {
-        setClickValue(value);
+    useEffect(() => {
+        setChannelID(id || "");
+    }, [id])
+
+   /* useEffect(() => {
+        console.log(showCategory, videoData)
+    },[showCategory])  */
+    const handleChannelClick = () => {
         hideMenu(false);
     }
-    const handleVideoClick = (value: string) => {
-        setVideoClickValue(value);
+    const handleVideoClick = () => {
         hideMenu(true);
     }
-    if(!isHidden && showCategory) return(
+    if(!isHidden) return(
         <div className="loadingpage-parent">
             <div className="homepage">
                {videoData?.data?.contents?.map((videoData, index: number) => {

@@ -9,10 +9,6 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                index: true,
-                element: <LoadingPage />
-            },
-            {
                 path: ':id',
                 element: <SingleVideo />
             },

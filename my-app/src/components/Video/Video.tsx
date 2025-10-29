@@ -27,10 +27,10 @@ const Video = ({videoData, onClick}: VideoDataType) => {
     const { video } = videoData;
     const { title, author, thumbnails, publishedTimeText, videoId } = video;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
-
+   
     const videoClick = () => {
 /*         onClick(videoId);
- */        navigate(videoId);
+ */        navigate('/' + videoId);
     }
 
     return(

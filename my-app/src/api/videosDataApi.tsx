@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const key = '7ead83869dmsh9ae665a6315be0fp16902bjsnfc17eed2ca4e';
+const key = '6e4f34777emsh96d1533bd72026bp1aaaabjsne13c02232676';
 
 const fetchDataApi = async(value: string) => {
     const options = {
