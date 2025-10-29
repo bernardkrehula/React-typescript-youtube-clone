@@ -19,7 +19,7 @@ type VideoDataType = {
         lengthSeconds: number;
         };
     }
-    onClick: (value: string) => void;
+    onClick: () => void;
 }
 
 const Video = ({videoData, onClick}: VideoDataType) => {
@@ -29,8 +29,8 @@ const Video = ({videoData, onClick}: VideoDataType) => {
     const lastThumbnail = thumbnails[thumbnails.length - 1];
    
     const videoClick = () => {
-/*         onClick(videoId);
- */        navigate('/' + videoId);
+        onClick();
+        navigate('/' + videoId);
     }
 
     return(

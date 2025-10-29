@@ -38,23 +38,17 @@ const SingleVideo = () => {
     const { isHidden } = connectionContext();
     const [ videoId, setVideoId ] = useState<string>("");
     const { id } = useParams();
-    const { data: clickedVideoData, isLoading: showClickedVideo } = getVideoDetailsApi(videoId);
-    const { data: videoComments, isLoading: showVideoComments } = getVideoCommentsApi(videoId);
+    const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(videoId);
+    const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(videoId);
 
     useEffect(() => {
         setVideoId(id || "");
     }, [id]);
-
     useEffect(() => {
         console.log(clickedVideoData)
-    },[clickedVideoData])
-   /*  
-    
+    },[showClickedVideo])
     //Single video data
-
-   
-
-    if(!showClickedVideo && !showVideoComments) return 
+    if(isHidden && showClickedVideo && showVideoComments){
 
     const { totalCommentsCount, comments } = videoComments;
     const { author, title, thumbnails, stats} = clickedVideoData; 
@@ -107,7 +101,7 @@ const SingleVideo = () => {
             })} 
             </div>
         </div>
-    ) */ 
+    )} 
 }
 
 export default SingleVideo;

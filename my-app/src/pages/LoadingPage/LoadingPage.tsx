@@ -48,9 +48,6 @@ const LoadingPage = () => {
         setChannelID(id || "");
     }, [id])
 
-   /* useEffect(() => {
-        console.log(showCategory, videoData)
-    },[showCategory])  */
     const handleChannelClick = () => {
         hideMenu(false);
     }
