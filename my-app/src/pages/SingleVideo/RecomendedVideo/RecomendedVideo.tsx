@@ -1,29 +1,23 @@
 import './RecomendedVideo.css'
 
 type VideoDataType = {
-    videoData: VideoTypes;
+    videoData: VideoType
     onClick?: () => void;
 }
-type VideoTypes = {
-    id: IdType;
-    snippet: SnippetType;
-}
-type IdType = {
-    kind: string;
-}
-type SnippetType = {
-    publishedAt: string;
-    title: string;
-    channelTitle: string;
-    thumbnails: { high: { 
-        url: string 
-    }};
-    description: string;
+export type VideoType = {
+    type: string;
+    video: {
+        thumbnails: [{height: number, url: string, width: number}];
+        title: string;
+        publishedTimeText: string;
+        author: {
+            title: string;
+        }
+    }
 }
 
 const RecomendedVideo = ({videoData, onClick}: VideoDataType) => {
-    console.log(videoData)
-    const { video } = videoData
+    const { video } = videoData;
     const { thumbnails, title, publishedTimeText, author } = video;
     const { height, url, width } = thumbnails[0];
     const { title: authorName } = author;

@@ -1,6 +1,5 @@
 import './SingleVideo.css'
 import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
-import { recomendedVideos } from '#/data/recomendedVideos';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
 import type { CommentTypes } from './Comment/Comment';
@@ -9,8 +8,7 @@ import { getVideoCommentsApi } from '#/api/videoComments';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getRecomendedVideosApi } from '#/api/recomendedVideos';
-import { videoComments } from '#/data/VideoComments';
-import { videoDetails } from '#/data/videoDetails';
+import type { VideoDataType, VideoType } from './RecomendedVideo/RecomendedVideo';
 
 type SingleVideoTypes = {
     videoComments: {
@@ -32,14 +30,15 @@ type SingleVideoTypes = {
             likes: number;
             views: number;
         }
-    }
+    },
+
     showClickedVideo: boolean;
     showVideoComments: boolean;
 }
 
 const SingleVideo = () => {
     const { isHidden } = connectionContext();
-   /*  const [ videoId, setVideoId ] = useState<string>("");
+   const [ videoId, setVideoId ] = useState<string>("");
     const [ channelId, setChannelId ] = useState<string>("");
     const { channelID, videoID } = useParams();
     const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(videoId);
@@ -50,14 +49,12 @@ const SingleVideo = () => {
         setVideoId(videoID || "");
         setChannelId(channelID || "");
     }, [videoID]);
-    useEffect(() => {
-        console.log('recomended-videos: ', recomendedVideos)
-    },[showRecomendedVideos]) */
+  
     //Single video data
-    if(isHidden ){
+    if(isHidden && showClickedVideo && showVideoComments && showRecomendedVideos){
 
     const { totalCommentsCount, comments } = videoComments;
-    const { author, title, thumbnails, stats} = videoDetails; 
+    const { author, title, thumbnails, stats} = clickedVideoData; 
     const { likes, views } = stats;
     const { title: authorName } = author;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
@@ -92,7 +89,7 @@ const SingleVideo = () => {
                 </div>
                 <h4 className='comments-count'>{Number(totalCommentsCount).toLocaleString()} comments</h4>
                 <div className='comments'>
-                    {comments.map((comment, index: number) => {
+                    {comments.map((comment: CommentTypes, index: number) => {
                         return(
                             <Comment key={index} {...comment}/>
                         )
@@ -100,7 +97,7 @@ const SingleVideo = () => {
                 </div>
             </div>
             <div className='recomended-videos'>
-                {recomendedVideos.contents.map((data, index) =>{
+                {recomendedVideos.contents.map((data: VideoType, index: number) =>{
                     if(data.type === 'video') return(
                         <RecomendedVideo  key={index} videoData={data}/>
                     )

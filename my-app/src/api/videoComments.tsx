@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-const key = '41f4e07bbemshb46d6d6c105e338p1b404cjsn1c8105fc4986';
+const key = 'b856423178msh48e94cd57f9b831p1dc629jsn9a39fd69eb20';
 
 export const fetchDataApi = async(videoID: string) => {
     const options = {
