@@ -8,6 +8,8 @@ import { getVideoDetailsApi } from '#/api/videoDetails';
 import { getVideoCommentsApi } from '#/api/videoComments';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
+import { getRecomendedVideosApi } from '#/api/recomendedVideos';
+import { videoComments } from '#/data/VideoComments';
 
 type SingleVideoTypes = {
     videoComments: {
@@ -36,17 +38,20 @@ type SingleVideoTypes = {
 
 const SingleVideo = () => {
     const { isHidden } = connectionContext();
-    const [ videoId, setVideoId ] = useState<string>("");
-    const { id } = useParams();
+   /*  const [ videoId, setVideoId ] = useState<string>("");
+    const [ channelId, setChannelId ] = useState<string>("");
+    const { channelID, videoID } = useParams();
     const { data: clickedVideoData, isFetched: showClickedVideo } = getVideoDetailsApi(videoId);
-    const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(videoId);
+    const { data: videoComments, isFetched: showVideoComments } = getVideoCommentsApi(videoId); 
+    const { data: recomendedVideos, isFetched: showRecomendedVideos } = getRecomendedVideosApi(channelId);
 
     useEffect(() => {
-        setVideoId(id || "");
-    }, [id]);
+        setVideoId(videoID || "");
+        setChannelId(channelID || "");
+    }, [videoID]);
     useEffect(() => {
-        console.log(clickedVideoData)
-    },[showClickedVideo])
+        console.log('recomended-videos: ', recomendedVideos)
+    },[showRecomendedVideos]) */
     //Single video data
     if(isHidden && showClickedVideo && showVideoComments){
 
@@ -94,14 +99,14 @@ const SingleVideo = () => {
                 </div>
             </div>
             <div className='recomended-videos'>
-                {recomendedVideos.items.map((data, index) =>{
-                    return(
+                {recomendedVideos.contents.map((data, index) =>{
+                    if(data.type === 'video') return(
                         <RecomendedVideo  key={index} videoData={data}/>
                     )
             })} 
             </div>
         </div>
-    )} 
+    )}  
 }
 
 export default SingleVideo;

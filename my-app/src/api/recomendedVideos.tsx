@@ -1,35 +1,30 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-const key = 'ec0e452206msh6457687ec51e1f6p1b9439jsnb98b8a108017';
+const key = 'b856423178msh48e94cd57f9b831p1dc629jsn9a39fd69eb20';
 
-const fetchDataApi = async (value: string) => {
-    const id = value[1];
-
+const fetchDataApi = async(value: string) => {
     const options = {
-        method: 'GET',
-        url: 'https://youtube-v31.p.rapidapi.com/search',
-        params: {
-        channelId: id,
-        part: 'snippet,id',
-        order: 'date',
-        maxResults: '34',
-        },
-        headers: {
-        'X-RapidAPI-Key': 'ca15920c56mshf9c581b5644b811p131238jsnb4402ca00e5c',
-        'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com',
-        },
+    method: 'GET', 
+    url: 'https://youtube138.p.rapidapi.com/search/',
+    params: {
+        q:  value,
+        hl: 'en',
+        gl: 'US'
+    },
+    headers: {
+        'x-rapidapi-key': 'key',
+        'x-rapidapi-host': 'youtube138.p.rapidapi.com'
+    }
     };
 
     try {
         const response = await axios.request(options);
-        console.log(response.data);
         return response.data;
-    } 
-    catch (error) {
+        } catch (error) {
         console.error(error);
     }
-};
+}
 
 export const getRecomendedVideosApi = (value: string) => {
     return useQuery({

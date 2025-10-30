@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
-const key = '7ead83869dmsh9ae665a6315be0fp16902bjsnfc17eed2ca4e';
+const key = 'b856423178msh48e94cd57f9b831p1dc629jsn9a39fd69eb20';
 
 export const fetchDataApi = async(videoID: string) => {
     const options = {
@@ -13,7 +13,7 @@ export const fetchDataApi = async(videoID: string) => {
         gl: 'US'
     },
     headers: {
-        'x-rapidapi-key': key,
+        'x-rapidapi-key': 'key',
         'x-rapidapi-host': 'youtube138.p.rapidapi.com'
     }
     };

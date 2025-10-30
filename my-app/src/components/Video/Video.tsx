@@ -6,8 +6,9 @@ type VideoDataType = {
         type: string;
         video: {
         title: string;
-        author?: {
+        author: {
             title: string;
+            channelId: string;
         }
         thumbnails: [{ height: number, url: string, width: number }];
         videoId: string;
@@ -26,13 +27,14 @@ const Video = ({videoData, onClick}: VideoDataType) => {
     const navigate = useNavigate();
     const { video } = videoData;
     const { title, author, thumbnails, publishedTimeText, videoId } = video;
+    const { channelId } = author;
     const lastThumbnail = thumbnails[thumbnails.length - 1];
    
     const videoClick = () => {
         onClick();
-        navigate('/' + videoId);
+        navigate('/' + channelId + '/' + videoId);
     }
-
+    
     return(
             <div className='video' onClick={videoClick}>
                 <img src={lastThumbnail.url}/> 

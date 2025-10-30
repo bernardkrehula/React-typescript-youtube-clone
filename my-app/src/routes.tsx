@@ -9,7 +9,7 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             {
-                path: ':id',
+                path: ':channelID/:videoID',
                 element: <SingleVideo />
             },
             {

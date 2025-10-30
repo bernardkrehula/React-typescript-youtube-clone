@@ -1,7 +1,4 @@
 import './RecomendedVideo.css'
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { differenceInDays } from 'date-fns';
 
 type VideoDataType = {
     videoData: VideoTypes;
@@ -25,42 +22,17 @@ type SnippetType = {
 }
 
 const RecomendedVideo = ({videoData, onClick}: VideoDataType) => {
-    const [ timeOfPublishing , setTimeOfPublishing ] = useState('');
-    const { snippet, id } = videoData;
-    const { kind } = id;
-    const { channelTitle, title, publishedAt, thumbnails, description } = snippet;
-    const { high } = thumbnails;
+    const { thumbnails, title, publishedTimeText, author } = videoData;
+    const { height, url, width } = thumbnails[0];
+    const { title: authorName } = author;
 
-    useEffect(() => {
-        getTimeDifference();
-    }, [videoData])
-
-    const getTimeDifference = () => {
-            const publisedTime = new Date(publishedAt);
-            const currentTime = new Date();
-    
-            const difference = differenceInDays(currentTime, publisedTime)
-            //Show days
-            if(difference <= 31) setTimeOfPublishing(`${difference} days ago`);
-            //Show months
-            if(difference > 31){
-                const result = Math.floor(difference/31);
-                setTimeOfPublishing(`${result} months ago`);
-            }
-            //Show year
-            if(difference >= 365){
-                const result = Math.floor(difference/365);
-                setTimeOfPublishing(`${result} year ago`);
-            }
-        }
-
-    if(kind != "youtube#channel") return(
+    return(
         <div className='recomended-video' onClick={onClick}>
-            <img src={high.url}/> 
+            <img src={url}/> 
             <div className='recomended-content'>
                 <h1>{title}</h1>
-                <h2>{channelTitle}</h2>
-                <h3>{timeOfPublishing}</h3>
+                <h2>{authorName}</h2>
+                <h3>{publishedTimeText}</h3>
             </div>
         </div>
     )
