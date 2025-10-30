@@ -1,6 +1,6 @@
 import './SingleVideo.css'
 import RecomendedVideo from './RecomendedVideo/RecomendedVideo';
-import recomendedVideos from '../../data/recomendedVideos';
+import { recomendedVideos } from '#/data/recomendedVideos';
 import Comment from './Comment/Comment';
 import { connectionContext } from '../../useContext/ConnectionProvider';
 import type { CommentTypes } from './Comment/Comment';
@@ -10,6 +10,7 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getRecomendedVideosApi } from '#/api/recomendedVideos';
 import { videoComments } from '#/data/VideoComments';
+import { videoDetails } from '#/data/videoDetails';
 
 type SingleVideoTypes = {
     videoComments: {
@@ -53,10 +54,10 @@ const SingleVideo = () => {
         console.log('recomended-videos: ', recomendedVideos)
     },[showRecomendedVideos]) */
     //Single video data
-    if(isHidden && showClickedVideo && showVideoComments){
+    if(isHidden ){
 
     const { totalCommentsCount, comments } = videoComments;
-    const { author, title, thumbnails, stats} = clickedVideoData; 
+    const { author, title, thumbnails, stats} = videoDetails; 
     const { likes, views } = stats;
     const { title: authorName } = author;
     const lastThumbnail = thumbnails[thumbnails.length - 1];

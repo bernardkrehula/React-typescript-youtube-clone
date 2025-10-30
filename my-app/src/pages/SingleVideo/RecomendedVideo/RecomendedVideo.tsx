@@ -22,15 +22,22 @@ type SnippetType = {
 }
 
 const RecomendedVideo = ({videoData, onClick}: VideoDataType) => {
-    const { thumbnails, title, publishedTimeText, author } = videoData;
+    console.log(videoData)
+    const { video } = videoData
+    const { thumbnails, title, publishedTimeText, author } = video;
     const { height, url, width } = thumbnails[0];
     const { title: authorName } = author;
+
+    const cutTitle = (text: string, limit: number) => {
+        if (text.length <= limit) return text;
+            return text.slice(0, limit) + '...';
+    };
 
     return(
         <div className='recomended-video' onClick={onClick}>
             <img src={url}/> 
             <div className='recomended-content'>
-                <h1>{title}</h1>
+                <h1>{cutTitle(title, 40)}</h1>
                 <h2>{authorName}</h2>
                 <h3>{publishedTimeText}</h3>
             </div>
