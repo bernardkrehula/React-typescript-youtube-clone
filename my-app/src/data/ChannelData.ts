@@ -1,4 +1,4 @@
-const ChannelData = {
+export const ChannelData = {
     "channel": {
         "avatar": [
             {

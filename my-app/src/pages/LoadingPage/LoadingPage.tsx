@@ -4,15 +4,12 @@ import { connectionContext } from "../../useContext/ConnectionProvider";
 import { useOutletContext, useParams } from 'react-router';
 import Channel from "../../components/Channel/Channel";
 import ChannelPage from "../ChannelPage/ChannelPage";
-import type { ChannelDataType } from "../ChannelPage/ChannelPage";
-import type { ChannelVideosType } from "../ChannelPage/ChannelPage";
 import { useEffect, useState } from "react";
 import { getChannelDataApi } from "#/api/channelApi";
 import { getChannelVideosApi } from "#/api/channelVideosApi";
-import { videoData } from "#/data/randomVideosData";
 
 type LoadingPageDataType = {
-    data?: {
+    data: {
         config: {},
         data: {
             contents: [{
@@ -42,10 +39,11 @@ const LoadingPage = () => {
     const { data: channelData, isFetched: showChannel } = getChannelDataApi(channelID);
     const { data: channelVideos, isFetched: showChannelVideos } = getChannelVideosApi(channelID);
     const { hideMenu, isHidden } = connectionContext();
-    const {  showCategory } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean,  showChannelVideos: boolean;}>();
+    const { videoData, showCategory } = useOutletContext<{ videoData: LoadingPageDataType, showCategory: boolean}>();
    
     useEffect(() => {
         setChannelID(id || "");
+        console.log(videoData,showCategory)
     }, [id])
 
     const handleChannelClick = () => {
@@ -54,10 +52,10 @@ const LoadingPage = () => {
     const handleVideoClick = () => {
         hideMenu(true);
     }
-    if(!isHidden) return(
+    if(!isHidden && showCategory) return(
         <div className="loadingpage-parent">
             <div className="homepage">
-               {videoData?.data?.contents?.map((videoData, index: number) => {
+               {videoData?.data?.contents.map((videoData, index: number) => {
                      
                     if(videoData.type === 'video') return(
                         <Video key={index} videoData={videoData} onClick={handleVideoClick} ></Video>
@@ -67,7 +65,6 @@ const LoadingPage = () => {
                     )
                })}
             </div>
-            
         </div>   
     ) 
     if(!isHidden && showChannel && showChannelVideos) return (

@@ -19,7 +19,7 @@ export type VideoType = {
 const RecomendedVideo = ({videoData, onClick}: VideoDataType) => {
     const { video } = videoData;
     const { thumbnails, title, publishedTimeText, author } = video;
-    const { height, url, width } = thumbnails[0];
+    const { url } = thumbnails[0];
     const { title: authorName } = author;
 
     const cutTitle = (text: string, limit: number) => {

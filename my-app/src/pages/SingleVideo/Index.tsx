@@ -8,33 +8,7 @@ import { getVideoCommentsApi } from '#/api/videoComments';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { getRecomendedVideosApi } from '#/api/recomendedVideos';
-import type { VideoDataType, VideoType } from './RecomendedVideo/RecomendedVideo';
-
-type SingleVideoTypes = {
-    videoComments: {
-        totalCommentsCount: number;
-        comments: CommentTypes[];
-    }
-    clickedVideoData: {
-        author: {
-            title: string;
-        }
-        title: string;
-        thumbnails: [{
-            url: string;
-            width: number;
-            height: number;
-        }]
-        stats: {
-            comments: number;
-            likes: number;
-            views: number;
-        }
-    },
-
-    showClickedVideo: boolean;
-    showVideoComments: boolean;
-}
+import type { VideoType } from './RecomendedVideo/RecomendedVideo';
 
 const SingleVideo = () => {
     const { isHidden } = connectionContext();

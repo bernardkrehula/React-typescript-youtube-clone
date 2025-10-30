@@ -1,7 +1,7 @@
 import './ChannelVideo.css'
 
 type VideoDataType = {
-    data?: {
+    data: {
         video: {
         title: string;
         thumbnails: [{ url: string }];

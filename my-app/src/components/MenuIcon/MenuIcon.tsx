@@ -1,5 +1,5 @@
 import parse from "html-react-parser";
-import { Link, useParams } from "react-router";
+import { Link } from "react-router";
 import './MenuIcon.css'
 
 type MenuIcon = {

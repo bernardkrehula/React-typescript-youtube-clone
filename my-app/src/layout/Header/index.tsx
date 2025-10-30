@@ -28,7 +28,6 @@ const Header = ({setValue}: HeaderTypes) => {
             e.currentTarget.value = '';
             loadingAnimation();
             hideMenu(false);
-            setInputValue('');
         }
     }
 

@@ -3,7 +3,7 @@ import './SingleInput.css'
 type InputTypes = {
     placeholder: string;
     variation: string;
-    onChange: () => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
